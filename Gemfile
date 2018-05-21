@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.4'
 
+gem 'validates_timeliness', '~> 4.0'
 gem 'devise'
 gem 'bootsnap', require: false
 gem 'figaro'
