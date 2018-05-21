@@ -1,0 +1,2 @@
+class VehiculesController < ApplicationController
+end
