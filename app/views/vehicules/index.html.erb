@@ -2,11 +2,11 @@
   <%= form_tag '', method: :get do %>
   <div class="div-inline">
 
-    <div class="dropdown">
+    <div class="dropdown dropdown-filter">
       <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
          Date
       </button>
-      <div class="dropdown-menu" aria-labelledby="dLabel">
+      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
         <%= render '/components/calendar' %>
         <div class="input-group input-daterange">
           <input type="text" class="form-control">
@@ -15,62 +15,62 @@
         </div>
       </div>
     </div>
-    <div class="dropdown">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="dropdown dropdown-filter">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
          Brand
       </button>
-      <div class="dropdown-menu" aria-labelledby="dLabel">
+      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
           <%= text_field_tag :brand %>
       </div>
     </div>
-    <div class="dropdown">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="dropdown dropdown-filter">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
          Model
       </button>
-      <div class="dropdown-menu" aria-labelledby="dLabel">
+      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
           <%= text_field_tag :model %>
       </div>
     </div>
-    <div class="dropdown">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="dropdown dropdown-filter">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
          Year
       </button>
-      <div class="dropdown-menu" aria-labelledby="dLabel">
+      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
           <%= text_field_tag :year %>
       </div>
     </div>
-      <div class="dropdown">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="dropdown dropdown-filter">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
          Price
       </button>
-      <div class="dropdown-menu" aria-labelledby="dLabel">
+      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
           <%= text_field_tag :price_per_day %>
       </div>
     </div>
-      <div class="dropdown">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="dropdown dropdown-filter">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
          Number of Seats
       </button>
-      <div class="dropdown-menu" aria-labelledby="dLabel">
+      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
           <%= text_field_tag :number_of_seats %>
       </div>
     </div>
-      <div class="dropdown">
+      <div class="dropdown dropdown-filter">
       <%= select_tag :transmission, raw("<option selected disabled>Transmission</option><option>Manual</option><option>Automatic</option>") %>
     </div>
-      <div class="dropdown">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="dropdown dropdown-filter">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
          Category
       </button>
-      <div class="dropdown-menu" aria-labelledby="dLabel">
+      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
           <%= text_field_tag :category %>
       </div>
     </div>
-      <div class="dropdown">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="dropdown dropdown-filter">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
          Location
       </button>
-      <div class="dropdown-menu" aria-labelledby="dLabel">
+      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
           <%= text_field_tag :location %>
       </div>
     </div>
@@ -91,12 +91,12 @@
             <p><%= vehicule.model %></p>
           </div>
           <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-          <a class="card-link" href="#" ></a>
+          <a><%= link_to "Show", vehicule_path(vehicule), class: "card-link"  %></a>
         </div>
       <% end %>
       </div>
     </div>
   </div>
 </div>
-<!-- = link_to "Show", vehicule_path(vehicule), class: "card-link"  %> -->
+
 <%= link_to "New", new_vehicule_path %>
