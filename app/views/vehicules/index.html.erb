@@ -1,29 +1,90 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-  Date
-</button>
 
-<!-- Modal -->
 <div class="container">
-  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <%= form_tag '', method: :get do %>
+  <div class="div-inline">
+
+    <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Date
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+        <%= render '/components/calendar' %>
+        <div class="input-group input-daterange">
+          <input type="text" class="form-control">
+          <div class="input-group-addon">to</div>
+          <input type="text" class="form-control">
+        </div>
       </div>
-      <div class="modal-body">
-        ...
+    </div>
+    <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Brand
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+          <%= text_field_tag :brand %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+    <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Model
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+          <%= text_field_tag :model %>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Year
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+          <%= text_field_tag :year %>
+      </div>
+    </div>
+      <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Price
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+          <%= text_field_tag :price_per_day %>
+      </div>
+    </div>
+      <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Number of Seats
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+          <%= text_field_tag :number_of_seats %>
+      </div>
+    </div>
+      <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Transmission
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+          <%= text_field_tag :transmission %>
+      </div>
+    </div>
+      <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Category
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+          <%= text_field_tag :category %>
+      </div>
+    </div>
+      <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Location
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+          <%= text_field_tag :location %>
       </div>
     </div>
   </div>
+    <%= submit_tag "Filter now!" %>
+  <% end %>
 </div>
+
 
 <div class="container">
   <div class="row">
@@ -31,10 +92,12 @@
       <div class="col-xs-12 col-sm-4">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path vehicule.photo %>');">
         <div class="card-category">Popular</div>
-        <div class="card-description">
-          <h2><%= vehicule.brand %></h2>
-          <p><%= vehicule.model %></p>
+          <div class="card-description">
+            <h2><%= vehicule.brand %></h2>
+            <p><%= vehicule.model %></p>
           </div>
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          <a class="card-link" href="#" ></a>
         </div>
       <% end %>
       </div>
