@@ -1,11 +1,11 @@
-
 <div class="container">
   <%= form_tag '', method: :get do %>
   <div class="div-inline">
 
     <div class="dropdown">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Date
+      <div class="btn-group">
+      <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Date
+      <span class="caret"></span>
       </button>
       <div class="dropdown-menu" aria-labelledby="dLabel">
         <%= render '/components/calendar' %>
@@ -57,12 +57,7 @@
       </div>
     </div>
       <div class="dropdown">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Transmission
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dLabel">
-          <%= text_field_tag :transmission %>
-      </div>
+      <%= select_tag :transmission, raw("<option selected disabled>Transmission</option><option>Manual</option><option>Automatic</option>") %>
     </div>
       <div class="dropdown">
       <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
