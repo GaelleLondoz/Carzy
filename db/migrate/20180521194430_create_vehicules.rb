@@ -3,6 +3,7 @@ class CreateVehicules < ActiveRecord::Migration[5.2]
     create_table :vehicules do |t|
       t.string :brand
       t.string :model
+      t.string :number_of_seats
       t.string :mileage
       t.string :price_per_day
       t.string :year

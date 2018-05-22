@@ -1,0 +1,103 @@
+<div class="container">
+  <%= form_tag '', method: :get do %>
+  <div class="div-inline">
+
+    <div class="dropdown">
+      <div class="btn-group">
+      <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Date
+      <span class="caret"></span>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+        <%= render '/components/calendar' %>
+        <div class="input-group input-daterange">
+          <input type="text" class="form-control">
+          <div class="input-group-addon">to</div>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Brand
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+          <%= text_field_tag :brand %>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Model
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+          <%= text_field_tag :model %>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Year
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+          <%= text_field_tag :year %>
+      </div>
+    </div>
+      <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Price
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+          <%= text_field_tag :price_per_day %>
+      </div>
+    </div>
+      <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Number of Seats
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+          <%= text_field_tag :number_of_seats %>
+      </div>
+    </div>
+      <div class="dropdown">
+      <%= select_tag :transmission, raw("<option selected disabled>Transmission</option><option>Manual</option><option>Automatic</option>") %>
+    </div>
+      <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Category
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+          <%= text_field_tag :category %>
+      </div>
+    </div>
+      <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Location
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dLabel">
+          <%= text_field_tag :location %>
+      </div>
+    </div>
+  </div>
+    <%= submit_tag "Filter now!" %>
+  <% end %>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <% @vehicules.each do |vehicule|%>
+      <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path vehicule.photo %>');">
+        <div class="card-category">Popular</div>
+          <div class="card-description">
+            <h2><%= vehicule.brand %></h2>
+            <p><%= vehicule.model %></p>
+          </div>
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          <a class="card-link" href="#" ></a>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- = link_to "Show", vehicule_path(vehicule), class: "card-link"  %> -->
+<%= link_to "New", new_vehicule_path %>
