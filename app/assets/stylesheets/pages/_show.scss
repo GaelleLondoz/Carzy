@@ -92,14 +92,15 @@ h3{
   flex-wrap: wrap;
 }
 
-.container {
+.show_container {
   width: 900px;
+  margin: auto;
   height: 868px;
   background-color: #ffffff;
   box-shadow: 0.6px 6px 12.6px 1.4px rgba(38, 38, 38, 0.15);
   position: relative;
-  z-index: 50;
-  top: -42px;
+  z-index: 3;
+  top: -80px;
 }
 
 .container_elements{
