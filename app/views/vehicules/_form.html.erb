@@ -4,6 +4,7 @@
 <%= f.input :mileage %>
 <%= f.input :price_per_day, as: :slider, min: 0, max: 200 %>
 <%= f.input :year %>
+<%= f.input :number_of_seats %>
 <%= f.input :fuel_type, collection: ["Unleaded", "Diesel", "Electric"] %>
 <%= f.input :transmission, collection: ["Automatic", "Manual"] %>
 <%= f.input :category, collection: ["Van", "City car", "SUV", "Motorbike", "Scooter", "Convertible", "4WD"]%>

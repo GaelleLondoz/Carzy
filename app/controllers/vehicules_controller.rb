@@ -42,6 +42,6 @@ end
   end
 
   def vehicule_params
-    params.require(:vehicule).permit(:brand, :model, :mileage, :price_per_day, :year, :fuel_type, :transmission, :category, :photo, :location)
+    params.require(:vehicule).permit(:brand, :model, :mileage, :price_per_day, :year, :fuel_type, :transmission, :category, :photo, :location, :number_of_seats)
   end
 end
