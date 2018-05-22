@@ -1,3 +1,26 @@
 .slider-handle{
-  background-color: yellow;
+  background-color: $yellow;
+  width: 8px;
+  height: 25px;
+  background-image: none;
+}
+
+.slider-handle.round {
+    border-radius: 0;
+}
+
+.slider.slider-horizontal {
+  margin-left: 35px;
+}
+
+.slider-track {
+  position: absolute;
+  cursor: pointer;
+  background-color: black;
+  background-size: 2px 2px;
+  background-repeat: repeat-x;
+  background-image: none;
+  filter: none;
+  box-shadow: none;
+  border-radius: 4px;
 }
