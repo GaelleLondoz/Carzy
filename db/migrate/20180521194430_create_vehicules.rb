@@ -11,6 +11,7 @@ class CreateVehicules < ActiveRecord::Migration[5.2]
       t.string :category
       t.string :photo
       t.string :location
+      t.text :description
       t.references :user, foreign_key: true
 
       t.timestamps

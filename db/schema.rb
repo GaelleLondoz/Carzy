@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2018_05_21_201545) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.st ring "email", default: "", null: false
+    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "first_name"
     t.string "last_name"
@@ -47,18 +47,6 @@ ActiveRecord::Schema.define(version: 2018_05_21_201545) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  Vehicule.create(brand: "mini", model:"cooper", mileage: "120 150 kms", price_per_day: "35", year: "2010", fuel_type: "Diesel", transmission: "Automatic", category: "Citadine")
-    t.string "model"
-    t.string "mileage"
-    t.string "price_per_day"
-    t.string "year"
-    t.string "fuel_type"
-    t.string "transmission"
-    t.string "category"
-    t.string "photo"
-    t.string "location"
-    t.bigint "user_id")
-
   create_table "vehicules", force: :cascade do |t|
     t.string "brand"
     t.string "model"
@@ -70,6 +58,7 @@ ActiveRecord::Schema.define(version: 2018_05_21_201545) do
     t.string "category"
     t.string "photo"
     t.string "location"
+    t.text "description"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

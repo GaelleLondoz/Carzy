@@ -1,4 +1,133 @@
  .banner{
   height: 80vh;
   background-repeat: no-repeat;
-  width: 100%;}
+  width: 100%;
+  z-index:2;
+  position:relative;
+  background-size:cover;
+}
+
+.avatar_user_random{
+  width: 109px;
+  height: 109px;
+  background-color: #e8e7e7;
+  border-radius: 50%;
+  margin-right: 53px;
+}
+
+h1{
+  font-family: Montserrat;
+  font-size: 41px;
+  font-weight: bold;
+  text-align: left;
+  color: #333333;
+  text-transform: uppercase;
+  margin: 41px 0 0 0
+}
+
+h2{
+  font-family: OpenSans;
+  font-size: 20px;
+  color: #333333;
+  margin: 0 0 11px 0;
+}
+
+h3{
+  width: 100%;
+}
+.description {
+  width: 555px;
+  height: 113px;
+  font-family: OpenSans;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #333333;
+}
+
+.user_description {
+  width: 392px;
+  height: 91px;
+  font-family: OpenSans;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #333333;
+}
+
+.user_description span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.button{
+  width: 160px;
+  margin: auto;
+  margin-top: 54px;
+  height: 47px;
+  background-color: #fece2f;}
+
+.button p{
+  font-family: OpenSans;
+  font-size: 18px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  padding-top: 11px;
+  color: #333333;
+}
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container {
+  width: 900px;
+  height: 868px;
+  background-color: #ffffff;
+  box-shadow: 0.6px 6px 12.6px 1.4px rgba(38, 38, 38, 0.15);
+  position: relative;
+  z-index: 50;
+  top: -42px;
+}
+
+.container_elements{
+    width: 555px;
+    margin: auto;
+}
+
+li {
+  width:50%;
+  font-family: OpenSans;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #333333;
+  margin: 8px 0px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul li img{
+ margin-right: 15px;
+}
