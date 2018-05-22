@@ -1,5 +1,10 @@
 class VehiculesController < ApplicationController
-  before_action :set_vehicule, only: [:edit, :update, :destroy]
+  before_action :set_vehicule, only: [:edit, :update, :destroy, :show]
+  skip_before_action :authenticate_user!, only: :show
+  def show
+
+  end
+
   def new
     @vehicule = Vehicule.new
   end
@@ -7,7 +12,7 @@ class VehiculesController < ApplicationController
   def create
     @vehicule = Vehicule.new(vehicule_params)
     @vehicule.user_id = current_user.id
-    if @vehicule.save
+    if @vehicule.save!
       redirect_to vehicule_path(@vehicule)
     else
       render :new

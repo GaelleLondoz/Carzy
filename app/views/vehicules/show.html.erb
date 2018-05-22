@@ -1,0 +1,34 @@
+
+      <% if @vehicule.photo? %>
+        <% photo_vehicule = cl_image_path @vehicule.photo, crop: :fill %>
+      <% else %>
+        <% photo_vehicule = image_path('not_available.png') %>
+      <% end %>
+      <div class="banner" style="background-image: url('<%= photo_vehicule %>'); "></div>
+
+
+
+
+
+    <h1><%= @vehicule.brand  %> <%= @vehicule.model %> </h1>
+    <br>
+    <h1><%= @vehicule.year %></h1>
+
+
+    <ul>
+        <li><%= image_tag("mileage.svg", size: "37x37", alt: "Icon mileage")%> <%= @vehicule.mileage %></li>
+        <li><%= image_tag("car.svg", size: "37x37", alt: "Icon car")%> <%= @vehicule.category %></li>
+        <li><%= image_tag("seats.svg", size: "37x37", alt: "Icon seats")%> 5 seats
+        </li>
+        <li><%= image_tag("transmission.svg", size: "37x37", alt: "Icon transmission")%> <%= @vehicule.transmission %></li>
+        <li><%= image_tag("dollar.svg", size: "37x37", alt: "Icon dollar")%> <%= @vehicule.price_per_day %></li>
+        <li><%= image_tag("fuel_type.svg", size: "37x37", alt: "Icon fuel_type")%> <%= @vehicule.fuel_type %></li>
+
+    </ul>
+    <br>
+
+
+
+    <h4><%= link_to "Back to Cocktails List", vehicules_path %></h4>
+  </div>
+</div>
