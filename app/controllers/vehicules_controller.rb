@@ -1,5 +1,15 @@
 class VehiculesController < ApplicationController
   before_action :set_vehicule, only: [:edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
+  def index
+    filters = params.permit(:brand, :model, :number_of_seats, :price_per_day, :year, :transmission, :category, :location).to_h.delete_if { |k, v| v.empty? }
+    @vehicules = Vehicule.where(filters)
+  before_action :set_vehicule, only: [:edit, :update, :destroy, :show]
+  skip_before_action :authenticate_user!, only: :show
+  def show
+  end
+
   def new
     @vehicule = Vehicule.new
   end
@@ -7,7 +17,7 @@ class VehiculesController < ApplicationController
   def create
     @vehicule = Vehicule.new(vehicule_params)
     @vehicule.user_id = current_user.id
-    if @vehicule.save
+    if @vehicule.save!
       redirect_to vehicule_path(@vehicule)
     else
       render :new
