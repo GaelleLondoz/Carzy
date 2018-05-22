@@ -11,23 +11,23 @@
 
 <div class="show_container">
   <div class="container_elements">
-  <h1><%= @vehicule.brand  %> <%= @vehicule.model %> </h1>
-  <h2><%= @vehicule.year %></h2>
+  <h1 "show_h1"><%= @vehicule.brand  %> <%= @vehicule.model %> </h1>
+  <h2 "show_h2"><%= @vehicule.year %></h2>
   <div class="flex">
-  <ul>
-      <li><%= image_tag("mileage.svg", size: "37x37", alt: "Icon mileage")%> <%= @vehicule.mileage %></li>
-      <li><%= image_tag("transmission.svg", size: "37x37", alt: "Icon transmission")%> <%= @vehicule.transmission %></li>
-      <li><%= image_tag("car.svg", size: "37x37", alt: "Icon car")%> <%= @vehicule.category %></li>
-      <li><%= image_tag("dollar.svg", size: "37x37", alt: "Icon dollar")%> <%= @vehicule.price_per_day %></li>
-      <li><%= image_tag("seats.svg", size: "37x37", alt: "Icon seats")%> 5 seats
+  <ul class="show_ul">
+      <li class="show_li"><%= image_tag("mileage.svg", size: "37x37", alt: "Icon mileage")%> <%= @vehicule.mileage %></li>
+      <li class="show_li"type=""><%= image_tag("transmission.svg", size: "37x37", alt: "Icon transmission")%> <%= @vehicule.transmission %></li>
+      <li class="show_li"><%= image_tag("car.svg", size: "37x37", alt: "Icon car")%> <%= @vehicule.category %></li>
+      <li class="show_li"><%= image_tag("dollar.svg", size: "37x37", alt: "Icon dollar")%> <%= @vehicule.price_per_day %></li>
+      <li class="show_li"><%= image_tag("seats.svg", size: "37x37", alt: "Icon seats")%> 5 seats
       </li>
-      <li><%= image_tag("fuel_type.svg", size: "37x37", alt: "Icon fuel_type")%> <%= @vehicule.fuel_type %></li>
+      <li class="show_li"><%= image_tag("fuel_type.svg", size: "37x37", alt: "Icon fuel_type")%> <%= @vehicule.fuel_type %></li>
   </ul>
   <br>
-  <h3>Description</h3>
+  <h3 class="show_h3">Description</h3>
   <p class="description">Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
 
-  <h3>Owner</h3>
+  <h3 class="show_h3">Owner</h3>
   <% if @vehicule.user.photo? %>
     <% photo_user = cl_image_path @vehicule.user.photo, :transformation=>[
     {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
