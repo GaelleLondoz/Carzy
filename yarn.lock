@@ -3024,9 +3024,19 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
+jquery-nice-select@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/jquery-nice-select/-/jquery-nice-select-1.1.0.tgz#9cd590fead56afe6bccd41294293fba356189c7d"
+  dependencies:
+    jquery "^2.2.3"
+
 "jquery@>=1.7.1 <4.0.0", jquery@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
+
+jquery@^2.2.3:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
 
 js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.4.5"
