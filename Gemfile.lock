@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/glyph-fr/redactor-rails.git
+  revision: 6f6655fd71199700f2e5d7bc1f7f3c19f37dde50
+  specs:
+    redactor-rails (0.6.0)
+      mime-types
+      orm_adapter
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -63,6 +71,13 @@ GEM
       aws_cf_signer
       rest-client
     coderay (1.1.2)
+    coffee-rails (4.2.2)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
     devise (4.4.3)
@@ -89,6 +104,7 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jquery (0.0.1)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -180,9 +196,15 @@ GEM
       bundler
       ffi (~> 1.9.6)
       sass (>= 3.3.0)
+    selectize-rails (0.12.4.1)
     simple_form (4.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    simple_form_extension (1.4.10)
+      rails (>= 3.1)
+      redactor-rails
+      selectize-rails
+      simple_form
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -232,19 +254,23 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3)
   carrierwave (~> 1.2)
   cloudinary
+  coffee-rails
   devise
   figaro
   font-awesome-sass (~> 5.0.9)
   jbuilder (~> 2.0)
+  jquery
   listen (~> 3.0.5)
   pg (~> 0.21)
   pry-byebug
   pry-rails
   puma
   rails (= 5.2.0)
+  redactor-rails!
   redis
   sass-rails
   simple_form
+  simple_form_extension
   spring
   spring-watcher-listen (~> 2.0.0)
   uglifier
