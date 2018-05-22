@@ -3,9 +3,10 @@ class VehiculesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-  filters = params.permit(:brand, :model, :number_of_seats, :price_per_day, :year, :transmission, :category, :location).to_h.delete_if { |k, v| v.empty? }
-  @vehicules = Vehicule.where(filters)
-end
+    filters = params.permit(:brand, :model, :number_of_seats, :price_per_day, :year, :transmission, :category, :location).to_h.delete_if { |k, v| v.empty? }
+    @vehicules = Vehicule.where(filters)
+  end
+
   def show
   end
 
