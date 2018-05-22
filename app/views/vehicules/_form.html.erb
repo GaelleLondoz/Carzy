@@ -1,0 +1,14 @@
+<%= simple_form_for @vehicule do |f| %>
+<%= f.input :brand %>
+<%= f.input :model %>
+<%= f.input :mileage %>
+<%= f.input :price_per_day %>
+<%= f.input :year %>
+<%= f.input :fuel_type %>
+<%= f.input :transmission %>
+<%= f.input :category %>
+<%= f.input :photo %>
+<%= f.input :photo_cache, as: :hidden %>
+<%= f.input :location %>
+<%= f.submit %>
+<% end %>
