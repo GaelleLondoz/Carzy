@@ -5,3 +5,19 @@
   color: #333333;
   text-transform: uppercase;
 }
+form {
+  .is-invalid {
+  color: $red;
+  border-color: $red;
+  }
+  .invalid-feedback {
+    color: $red;
+    font-size: 0.8em;
+    font-style: italic;
+  }
+}
+
+.login-container {
+  width: 500px;
+  margin: 0 auto;
+}
