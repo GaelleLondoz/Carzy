@@ -19,6 +19,10 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'carrierwave', '~> 1.2'
+gem 'simple_form_extension'
+gem 'coffee-rails'
+gem 'jquery'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
@@ -30,3 +34,5 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+gem 'redactor-rails', github: 'glyph-fr/redactor-rails'
