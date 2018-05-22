@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2018_05_21_201545) do
   create_table "vehicules", force: :cascade do |t|
     t.string "brand"
     t.string "model"
+    t.string "number_of_seats"
     t.string "mileage"
     t.string "price_per_day"
     t.string "year"
