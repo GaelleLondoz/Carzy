@@ -1,9 +1,10 @@
-.button-yellow{
+.button-yellow {
   padding: 10px 20px;
   background-color: $yellow;
   border-radius: 2px;
   color: #333333;
-  text-transform: uppercase;
+  font-size: 1.2em;
+  // text-transform: uppercase;
 }
 
 form {
@@ -21,4 +22,11 @@ form {
 .login-container {
   width: 500px;
   margin: 0 auto;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $light-gray;
+    font-weight: lighter;
+    font-size: 0.8em;
+    opacity: 1; /* Firefox */
 }

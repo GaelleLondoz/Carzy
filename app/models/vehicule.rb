@@ -5,6 +5,6 @@ class Vehicule < ApplicationRecord
   validates :mileage, presence: true
   validates :price_per_day, presence: true
   validates :transmission, presence: true
-  validates :category, presence: true, inclusion: { in: ["Van", "Citadine", "Truck", "Motorbike"] }
+  validates :category, presence: true
   mount_uploader :photo, PhotoUploader
 end
