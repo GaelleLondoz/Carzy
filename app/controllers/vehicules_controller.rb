@@ -2,7 +2,8 @@ class VehiculesController < ApplicationController
   before_action :set_vehicule, only: [:edit, :update, :destroy]
 
   def index
-    @vehicules = Vehicule.all
+    filters = params.permit(:brand, :model, :number_of_seats, :price_per_day, :year, :transmission, :category, :location).to_h
+    @vehicules = Vehicule.where(filters)
   end
 
   def new
