@@ -15,7 +15,7 @@
   margin-right: 53px;
 }
 
-h1{
+h1.show_h1{
   font-family: Montserrat;
   font-size: 41px;
   font-weight: bold;
@@ -25,14 +25,14 @@ h1{
   margin: 41px 0 0 0
 }
 
-h2{
+h2.show_h2{
   font-family: OpenSans;
   font-size: 20px;
   color: #333333;
   margin: 0 0 11px 0;
 }
 
-h3{
+h3.show_h3{
   width: 100%;
 }
 .description {
@@ -92,14 +92,15 @@ h3{
   flex-wrap: wrap;
 }
 
-.container {
+.show_container {
   width: 900px;
+  margin: auto;
   height: 868px;
   background-color: #ffffff;
   box-shadow: 0.6px 6px 12.6px 1.4px rgba(38, 38, 38, 0.15);
   position: relative;
-  z-index: 50;
-  top: -42px;
+  z-index: 3;
+  top: -80px;
 }
 
 .container_elements{
@@ -107,7 +108,7 @@ h3{
     margin: auto;
 }
 
-li {
+li.show_li{
   width:50%;
   font-family: OpenSans;
   font-size: 16px;
@@ -120,7 +121,7 @@ li {
   margin: 8px 0px;
 }
 
-ul {
+ul.show_ul {
   list-style-type: none;
   padding: 0;
   width: 600px;
@@ -128,6 +129,6 @@ ul {
   flex-wrap: wrap;
 }
 
-ul li img{
+ul.show_ul li.show_li img{
  margin-right: 15px;
 }

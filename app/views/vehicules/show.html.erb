@@ -1,31 +1,33 @@
+<% if @vehicule.photo? %>
+  <% photo_vehicule = cl_image_path @vehicule.photo, crop: :fill %>
+<% else %>
+  <% photo_vehicule = image_path('not_available.png') %>
+<% end %>
+<div class="banner" style="background-image: url('<%= photo_vehicule %>'); "></div>
 
-      <% if @vehicule.photo? %>
-        <% photo_vehicule = cl_image_path @vehicule.photo, crop: :fill %>
-      <% else %>
-        <% photo_vehicule = image_path('not_available.png') %>
-      <% end %>
-      <div class="banner" style="background-image: url('<%= photo_vehicule %>'); "></div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d11181.041007332382!2d-73.5993736!3d45.52496815!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sca!4v1527015380143" frameborder="0" style="border:0; border: 0;width: 100%; position: absolute; height: 126%; display: flex; top: 692px;" allowfullscreen>
+</iframe>
 
 
-<div class="container">
+<div class="show_container">
   <div class="container_elements">
-  <h1><%= @vehicule.brand  %> <%= @vehicule.model %> </h1>
-  <h2><%= @vehicule.year %></h2>
+  <h1 "show_h1"><%= @vehicule.brand  %> <%= @vehicule.model %> </h1>
+  <h2 "show_h2"><%= @vehicule.year %></h2>
   <div class="flex">
-  <ul>
-      <li><%= image_tag("mileage.svg", size: "37x37", alt: "Icon mileage")%> <%= @vehicule.mileage %></li>
-      <li><%= image_tag("transmission.svg", size: "37x37", alt: "Icon transmission")%> <%= @vehicule.transmission %></li>
-      <li><%= image_tag("car.svg", size: "37x37", alt: "Icon car")%> <%= @vehicule.category %></li>
-      <li><%= image_tag("dollar.svg", size: "37x37", alt: "Icon dollar")%> <%= @vehicule.price_per_day %></li>
-      <li><%= image_tag("seats.svg", size: "37x37", alt: "Icon seats")%> 5 seats
+  <ul class="show_ul">
+      <li class="show_li"><%= image_tag("mileage.svg", size: "37x37", alt: "Icon mileage")%> <%= @vehicule.mileage %></li>
+      <li class="show_li"type=""><%= image_tag("transmission.svg", size: "37x37", alt: "Icon transmission")%> <%= @vehicule.transmission %></li>
+      <li class="show_li"><%= image_tag("car.svg", size: "37x37", alt: "Icon car")%> <%= @vehicule.category %></li>
+      <li class="show_li"><%= image_tag("dollar.svg", size: "37x37", alt: "Icon dollar")%> <%= @vehicule.price_per_day %></li>
+      <li class="show_li"><%= image_tag("seats.svg", size: "37x37", alt: "Icon seats")%> 5 seats
       </li>
-      <li><%= image_tag("fuel_type.svg", size: "37x37", alt: "Icon fuel_type")%> <%= @vehicule.fuel_type %></li>
+      <li class="show_li"><%= image_tag("fuel_type.svg", size: "37x37", alt: "Icon fuel_type")%> <%= @vehicule.fuel_type %></li>
   </ul>
   <br>
-  <h3>Description</h3>
+  <h3 class="show_h3">Description</h3>
   <p class="description">Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
 
-  <h3>Owner</h3>
+  <h3 class="show_h3">Owner</h3>
   <% if @vehicule.user.photo? %>
     <% photo_user = cl_image_path @vehicule.user.photo, :transformation=>[
     {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
@@ -44,5 +46,5 @@
   <div class="button"><p>Rent this car</p></div>
 </div>
 </div>
-<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d11181.041007332382!2d-73.5993736!3d45.52496815!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sca!4v1527015380143" frameborder="0" style="border:0 ; width: 100%; height: 914px;;position: absolute;top: 631px; z-index: 1; position: absolute;" allowfullscreen>
-</iframe>
+
+
