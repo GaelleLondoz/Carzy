@@ -11,11 +11,12 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <%= render 'shared/modal_signup' %>
+    <%= render 'shared/modal_signin' %>
 
     <%= yield %>
 
-    <%= render 'shared/modal_signup'  %>
-    <%= render 'shared/modal_signin'  %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
