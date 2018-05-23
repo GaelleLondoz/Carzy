@@ -1,12 +1,14 @@
+<p><%= current_user.email %> </p>
 <div class="container">
   <h1>Confirmation page</h1>
-  <div class="wrappee-white">
-    <form action="" class="form-inline" method="POST">
+  <div class="wrapper-white">
+<!--     <form action="/vehicules/:vehicule_id" class="form-inline" method="post">
       <div class="input-daterange">
-        <input type="text" placeholder="Check-in" name="check_in" class="form-control">
-        <input type="text" placeholder="Check-in" name="check_out" class="form-control">
-        <%= link_to 'CONFIRM BOOKING', vehicules_path ,class: 'button-yellow'%>
+        <input type="text" placeholder="Check-in" name="params[:check_in]" class="form-control">
+        <input type="text" placeholder="Check-in" name="params[:check_out]" class="form-control">
+        <input type="submit" class="button-yellow" placeholder="Confirm booking">
       </div>
-    </form>
+    </form> -->
+    <%= render 'form' %>
   </div>
 </div>

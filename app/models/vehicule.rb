@@ -2,6 +2,7 @@ class Vehicule < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   belongs_to :user
+  has_many :bookings
   validates :brand, presence: true
   validates :model, presence: true
   validates :mileage, presence: true
