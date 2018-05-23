@@ -12,25 +12,15 @@
    }
 
   .avatar_user_random{
-    width: 109px;
+    min-width: 109px;
     height: 109px;
     background-color: #e8e7e7;
     border-radius: 50%;
-    margin-right: 53px;
+    margin-right: 20px;
   }
 
-//   #map {
-//     border: 0;
-//     width: 100%;
-//     position: absolute;
-//     height: 105%;
-//     display: flex;
-//     top: 511px;
-
-// }
 
   h1.show_h1{
-    font-family: Montserrat;
     font-size: 41px;
     font-weight: bold;
     text-align: left;
@@ -41,7 +31,6 @@
   }
 
   h2.show_h2{
-    font-family: OpenSans;
     font-size: 20px;
     color: #333333;
     margin: 0 0 11px 0;
@@ -51,8 +40,6 @@
     width: 100%;
   }
   .description {
-    width: 555px;
-    font-family: OpenSans;
     font-size: 16px;
     font-weight: normal;
     font-style: normal;
@@ -64,14 +51,7 @@
   }
 
   .user_description {
-    width: 392px;
-    font-family: OpenSans;
     font-size: 16px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
     text-align: left;
     color: #333333;
   }
@@ -81,24 +61,6 @@
     font-weight: bold;
   }
 
-  .button{
-    width: 160px;
-    margin: auto;
-    margin-top: 54px;
-    height: 47px;
-    background-color: #fece2f;}
-
-  .button p{
-    font-family: OpenSans;
-    font-size: 18px;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
-    padding-top: 11px;
-    color: #333333;
-  }
 
   .flex{
     display: flex;
@@ -124,12 +86,8 @@
 
   li.show_li{
     width:50%;
-    font-family: OpenSans;
     font-size: 16px;
     font-weight: 600;
-    font-style: normal;
-    font-stretch: normal;
-    letter-spacing: normal;
     text-align: left;
     color: #333333;
     margin: 8px 0px;
@@ -147,20 +105,31 @@
    margin-right: 15px;
   }
 
+
+.user_card{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+
+.center_button{
+  margin: auto;
+  max-width: 244px;
+}
+
+
+
+.center_button a.btn.button-yellow {
+  margin: 37px 5px;
+  width: 108px;
+
+  }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
 .banner {
      height: 406px;
 }
 
-// #map {
-//     border: 0;
-//     width: 100%;
-//     position: absolute;
-//     height: 126%;
-//     display: flex;
-//     top: 428px;
-
-// }
 
 .avatar_user_random {
     width: 109px;

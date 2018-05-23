@@ -41,12 +41,14 @@
   <% else %>
     <% photo_user = image_path('user_avatar.png') %>
   <% end %>
-   <div class="avatar_user_random"></div>
+  <div class="user_card">
+     <div class="avatar_user_random"></div>
 
-   <div class="user_description">
-        <span><%= @vehicule.user.first_name %> <%= @vehicule.user.last_name %></span>
-       <p>Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
-   </div>
+     <div class="user_description">
+          <span><%= @vehicule.user.first_name %> <%= @vehicule.user.last_name %></span>
+         <p>Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
+     </div>
+    </div>
   </div>
 <div class="center_button">
 <% if @vehicule.user == current_user %>
