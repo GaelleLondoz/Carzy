@@ -5,8 +5,13 @@
 <% end %>
 <div class="banner" style="background-image: url('<%= photo_vehicule %>'); "></div>
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d11181.041007332382!2d-73.5993736!3d45.52496815!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sca!4v1527015380143" frameborder="0" style="border:0; border: 0;width: 100%; position: absolute; height: 126%; display: flex; top: 692px;" allowfullscreen>
-</iframe>
+<%= link_to "https://www.google.com/maps/search/?api=1&query=#{@vehicule.latitude},#{@vehicule.longitude}", target: "_blank" do %>
+<div
+  id="map"
+  data-markers="<%= @markers.to_json %>"
+></div>
+<% end %>
+
 
 
 <div class="show_container">
@@ -25,7 +30,7 @@
   </ul>
   <br>
   <h3 class="show_h3">Description</h3>
-  <p class="description">Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
+  <p class="description"><%= @vehicule.description  %> </p>
 
   <h3 class="show_h3">Owner</h3>
   <% if @vehicule.user.photo? %>
@@ -43,20 +48,19 @@
        <p>Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
    </div>
   </div>
+<div class="center_button">
 <% if @vehicule.user == current_user %>
-    <div class="button"><p>Edit</p></div>
+  <%= link_to "Edit", edit_vehicule_path(@vehicule) , class: "btn button-yellow" %>
+
 <!--     new_vehicule_booking_path -->
-    <div class="button"><p>Delete</p></div>
+   <%= link_to "Delete", vehicule_path(@vehicule) , method: :delete , data: { confirm: "are you sure" }, class: "btn button-yellow" %>
   <% else %>
-  <div class="button"><p>Rent this car</p></div>
+
+  <%= link_to "Rent this car",  new_vehicule_booking_path(@vehicule) , class: "btn button-yellow" %>
 <% end %>
 </div>
 </div>
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-></div>
+</div>
+
 
 

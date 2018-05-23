@@ -1,8 +1,11 @@
 
+#map {
+  height: 1100px;
+}
+
    .banner{
       height: 80vh;
       background-repeat: no-repeat;
-      width: 100vw;
       background-size: cover;
       z-index: 2;
       position: relative;
@@ -16,15 +19,15 @@
     margin-right: 53px;
   }
 
-  iframe {
-    border: 0;
-    width: 100%;
-    position: absolute;
-    height: 105%;
-    display: flex;
-    top: 511px;
+//   #map {
+//     border: 0;
+//     width: 100%;
+//     position: absolute;
+//     height: 105%;
+//     display: flex;
+//     top: 511px;
 
-}
+// }
 
   h1.show_h1{
     font-family: Montserrat;
@@ -108,9 +111,10 @@
     height: 868px;
     background-color: #ffffff;
     box-shadow: 0.6px 6px 12.6px 1.4px rgba(38, 38, 38, 0.15);
-    position: relative;
+    position: absolute;
     z-index: 3;
-    top: -80px;
+    top: calc(90vh - 70px);
+    left: calc(50vw - 450px);
   }
 
   .container_elements{
@@ -148,15 +152,15 @@
      height: 406px;
 }
 
-iframe {
-    border: 0;
-    width: 100%;
-    position: absolute;
-    height: 126%;
-    display: flex;
-    top: 428px;
+// #map {
+//     border: 0;
+//     width: 100%;
+//     position: absolute;
+//     height: 126%;
+//     display: flex;
+//     top: 428px;
 
-}
+// }
 
 .avatar_user_random {
     width: 109px;
@@ -185,10 +189,6 @@ iframe {
       height: 209px;
     width: 100%;
  }
-iframe {
-  height: 100%;
-  top: 1360px;
-}
 
 .show_container {
     width: 100%;

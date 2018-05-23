@@ -7,23 +7,14 @@
     <div class="navbar-wagon-right hidden-xs hidden-sm">
 
       <%= link_to "Loan my vehicule", new_vehicule_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <a href="" class="navbar-wagon-item navbar-wagon-link">My rentals</a>
-<!--       <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a> -->
+      <%= link_to "My trips", profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-      <!-- Profile picture with dropdown list -->
       <div class="navbar-wagon-item">
-        <div class="dropdown avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown" >
-
-<!-- ajouter code gaelle pour photo avatar -->
-
+        <div class="dropdown">
           <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li><a href="#">Profile</a></li>
-<!--             <li><a href="#">Dashboard</a></li> -->
-            <li>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-            </li>
+            <li><%= link_to "Profile", profile_path %></li>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
           </ul>
         </div>
       </div>
@@ -34,8 +25,9 @@
       <div class="dropdown">
         <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Loan my car</a></li>
-          <li><a href="#">My rentals</a></li>
+
+          <li><%= link_to "Loan my vehicule", new_vehicule_path %></li>
+          <li><%= link_to "My trips", profile_path %></li>
 <!--           <li><a href="#">Messages</a></li> -->
         </ul>
       </div>
