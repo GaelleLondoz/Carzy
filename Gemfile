@@ -23,6 +23,7 @@ gem 'simple_form_extension'
 gem 'coffee-rails'
 gem 'jquery'
 gem 'rails-assets-jquery-nice-select', source: 'https://rails-assets.org'
+gem "geocoder"
 
 group :development do
   gem 'web-console', '>= 3.3.0'

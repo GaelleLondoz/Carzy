@@ -8,6 +8,10 @@ class VehiculesController < ApplicationController
   end
 
   def show
+    @markers = [{
+      lat: @vehicule.latitude,
+      lng: @vehicule.longitude,
+    }]
   end
 
   def new
@@ -43,6 +47,6 @@ class VehiculesController < ApplicationController
   end
 
   def vehicule_params
-    params.require(:vehicule).permit(:brand, :model, :mileage, :price_per_day, :year, :fuel_type, :transmission, :category, :photo, :location)
+    params.require(:vehicule).permit(:brand, :model, :mileage, :price_per_day, :year, :fuel_type, :transmission, :category, :photo, :location, :number_of_seats)
   end
 end
