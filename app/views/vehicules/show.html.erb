@@ -30,7 +30,7 @@
   </ul>
   <br>
   <h3 class="show_h3">Description</h3>
-  <p class="description">Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
+  <p class="description"><%= @vehicule.description  %> </p>
 
   <h3 class="show_h3">Owner</h3>
   <% if @vehicule.user.photo? %>
@@ -48,13 +48,17 @@
        <p>Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
    </div>
   </div>
+<div class="center_button">
 <% if @vehicule.user == current_user %>
-    <div class="btn button-yellow btn-lg"><p>Edit</p></div>
+  <%= link_to "Edit", edit_vehicule_path(@vehicule) , class: "btn button-yellow" %>
+
 <!--     new_vehicule_booking_path -->
-    <div class="btn button-yellow btn-lg"><p>Delete</p></div>
+   <%= link_to "Delete", vehicule_path(@vehicule) , method: :delete , data: { confirm: "are you sure" }, class: "btn button-yellow" %>
   <% else %>
-  <div class="btn button-yellow btn-lg"><p>Rent this car</p></div>
+
+  <%= link_to "Rent this car",  new_vehicule_booking_path(@vehicule) , class: "btn button-yellow" %>
 <% end %>
+</div>
 </div>
 </div>
 

@@ -38,6 +38,7 @@ class VehiculesController < ApplicationController
 
   def destroy
     @vehicule.destroy
+    redirect_to vehicules_path
   end
 
   private
@@ -47,6 +48,6 @@ class VehiculesController < ApplicationController
   end
 
   def vehicule_params
-    params.require(:vehicule).permit(:brand, :model, :mileage, :price_per_day, :year, :fuel_type, :transmission, :category, :photo, :location, :number_of_seats)
+    params.require(:vehicule).permit(:brand, :model, :mileage, :price_per_day, :year, :fuel_type, :transmission, :category, :photo, :location, :number_of_seats, :description)
   end
 end
