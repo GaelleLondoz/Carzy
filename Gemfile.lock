@@ -96,6 +96,7 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (5.0.13)
       sassc (>= 1.11)
+    geocoder (1.4.8)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     http-cookie (1.0.3)
@@ -225,6 +226,9 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.8)
     timeliness (0.3.8)
+    timeliness-i18n (0.5.0)
+      rails
+      timeliness
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.10)
@@ -262,6 +266,7 @@ DEPENDENCIES
   devise
   figaro
   font-awesome-sass (~> 5.0.9)
+  geocoder
   jbuilder (~> 2.0)
   jquery
   listen (~> 3.0.5)
@@ -278,6 +283,7 @@ DEPENDENCIES
   simple_form_extension
   spring
   spring-watcher-listen (~> 2.0.0)
+  timeliness-i18n
   uglifier
   validates_timeliness (~> 4.0)
   web-console (>= 3.3.0)

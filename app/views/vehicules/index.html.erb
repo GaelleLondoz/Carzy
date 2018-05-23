@@ -3,7 +3,7 @@
   <div class="div-inline">
 
     <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
          Date
       </button>
       <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
          Brand
       </button>
       <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
          Model
       </button>
       <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
          Year
       </button>
       <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
@@ -40,7 +40,7 @@
       </div>
     </div>
       <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
          Price
       </button>
       <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
@@ -48,8 +48,8 @@
       </div>
     </div>
       <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
-         Number of Seats
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
+         Seats
       </button>
       <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
           <%= text_field_tag :number_of_seats %>
@@ -59,23 +59,17 @@
       <%= select_tag :transmission, raw("<option selected disabled>Transmission</option><option>Manual</option><option>Automatic</option>") %>
     </div>
       <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
-         Category
-      </button>
-      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
-          <%= text_field_tag :category %>
+      <%= select_tag :category, raw("<option selected disabled>Category</option><option>Van</option><option>City Car</option><option>SUV</option><option>Motorbike</option><option>Scooter</option><option>Convertible</option><option>4WD</option>") %>
       </div>
-    </div>
       <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-yellow">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
          Location
       </button>
       <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
           <%= text_field_tag :location %>
       </div>
     </div>
-  </div>
-    <%= submit_tag "Filter now!" %>
+    <%= submit_tag "Filter now!", class: "button-yellow"%>
   <% end %>
 </div>
 
@@ -99,4 +93,3 @@
   </div>
 </div>
 
-<%= link_to "New", new_vehicule_path %>

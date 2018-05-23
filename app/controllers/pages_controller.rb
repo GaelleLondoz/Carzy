@@ -5,6 +5,11 @@ class PagesController < ApplicationController
   def home
   end
 
+  def profile
+    @bookings_i_made = current_user.bookings
+    @bookings_on_my_vehicule = current_user.bookings_on_vehicules
+  end
+
   private
 
   # def set_vehicule

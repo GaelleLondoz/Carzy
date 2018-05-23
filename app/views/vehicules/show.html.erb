@@ -11,15 +11,15 @@
 
 <div class="show_container">
   <div class="container_elements">
-  <h1 "show_h1"><%= @vehicule.brand  %> <%= @vehicule.model %> </h1>
-  <h2 "show_h2"><%= @vehicule.year %></h2>
+  <h1 class="show_h1"><%= @vehicule.brand  %> <%= @vehicule.model %> </h1>
+  <h2 class="show_h2"><%= @vehicule.year %></h2>
   <div class="flex">
   <ul class="show_ul">
-      <li class="show_li"><%= image_tag("mileage.svg", size: "37x37", alt: "Icon mileage")%> <%= @vehicule.mileage %></li>
-      <li class="show_li"type=""><%= image_tag("transmission.svg", size: "37x37", alt: "Icon transmission")%> <%= @vehicule.transmission %></li>
+      <li class="show_li"><%= image_tag("mileage.svg", size: "37x37", alt: "Icon mileage")%> <%= @vehicule.mileage %> kms</li>
+      <li class="show_li"type=""><%= image_tag("transmission.svg", size: "37x37", alt: "Icon transmission")%> <%= @vehicule.transmission %> </li>
       <li class="show_li"><%= image_tag("car.svg", size: "37x37", alt: "Icon car")%> <%= @vehicule.category %></li>
-      <li class="show_li"><%= image_tag("dollar.svg", size: "37x37", alt: "Icon dollar")%> <%= @vehicule.price_per_day %></li>
-      <li class="show_li"><%= image_tag("seats.svg", size: "37x37", alt: "Icon seats")%> 5 seats
+      <li class="show_li"><%= image_tag("dollar.svg", size: "37x37", alt: "Icon dollar")%> <%= @vehicule.price_per_day %> /day</li>
+      <li class="show_li"><%= image_tag("seats.svg", size: "37x37", alt: "Icon seats")%> <%= @vehicule.number_of_seats %> seats
       </li>
       <li class="show_li"><%= image_tag("fuel_type.svg", size: "37x37", alt: "Icon fuel_type")%> <%= @vehicule.fuel_type %></li>
   </ul>
@@ -43,8 +43,20 @@
        <p>Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
    </div>
   </div>
+<% if @vehicule.user == current_user %>
+    <div class="button"><p>Edit</p></div>
+<!--     new_vehicule_booking_path -->
+    <div class="button"><p>Delete</p></div>
+  <% else %>
   <div class="button"><p>Rent this car</p></div>
+<% end %>
 </div>
 </div>
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+></div>
 
 
