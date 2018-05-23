@@ -9,16 +9,18 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-
-    <%= yield %>
-
-    <%= render 'shared/modal_signup'  %>
-    <%= render 'shared/modal_signin'  %>
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+      <%= render 'shared/modal_signup' %>
+      <%= render 'shared/modal_signin' %>
+    <div class="container main-container">
+      <%= yield %>
+    </div>
+      <%= render 'shared/footer' %>
 
     <script src="path/to/jquery.js"></script>
     <script src="path/to/jquery.nice-select.js"></script>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_BROWSER_KEY']}" %>
