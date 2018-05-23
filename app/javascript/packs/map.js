@@ -183,13 +183,14 @@ if (mapElement) {
 
   const map = new GMaps({
     el: '#map',
-    lat: 0,
-    lng: 0,
-    gestureHandling: 'none',
-    zoomControl: false
+    lat: 45.5017,
+    lng: -73.5673,
+    // gestureHandling: 'none',
+    // zoomControl: false
   });
 
   const markers = JSON.parse(mapElement.dataset.markers);
+
   console.log(markers);
 
   map.addMarkers(markers);

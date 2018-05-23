@@ -6,9 +6,10 @@ class VehiculesController < ApplicationController
     filters = params.permit(:brand, :model, :number_of_seats, :price_per_day, :year, :transmission, :category).to_h.delete_if { |k, v| v.empty? }
     @vehicules = Vehicule.where(filters).where.not(latitude: nil, longitude: nil)
 
-    if params[:location]
+    if params[:location].present?
       @vehicules = @vehicules.near(params[:location], 5)
     end
+
 
     @markers = @vehicules.map do |vehicule|
       {
