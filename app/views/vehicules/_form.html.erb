@@ -10,6 +10,6 @@
 <%= f.input :category, collection: ["Van", "City car", "SUV", "Motorbike", "Scooter", "Convertible", "4WD"]%>
 <%= f.input :photo %>
 <%= f.input :photo_cache, as: :hidden %>
-<%= f.input :location %>
+<%= f.input :location, input_html:{id: "vehicule_location"}%>
 <%= f.submit 'ADD YOUR CAR', { class: 'button-yellow' } %>
 <% end %>

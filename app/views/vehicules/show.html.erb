@@ -43,8 +43,20 @@
        <p>Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
    </div>
   </div>
+<% if @vehicule.user == current_user %>
+    <div class="button"><p>Edit</p></div>
+<!--     new_vehicule_booking_path -->
+    <div class="button"><p>Delete</p></div>
+  <% else %>
   <div class="button"><p>Rent this car</p></div>
+<% end %>
 </div>
 </div>
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+></div>
 
 
