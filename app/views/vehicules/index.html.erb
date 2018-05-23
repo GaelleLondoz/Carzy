@@ -1,84 +1,14 @@
-<div class="container">
-  <%= form_tag '', method: :get do %>
-  <div class="div-inline">
+<%= render 'filter' %>
 
-    <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
-         Date
-      </button>
-      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
-        <%= render '/components/calendar' %>
-        <div class="input-group input-daterange">
-          <input type="text" class="form-control">
-          <div class="input-group-addon">to</div>
-          <input type="text" class="form-control">
-        </div>
-      </div>
-    </div>
-    <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
-         Brand
-      </button>
-      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
-          <%= text_field_tag :brand %>
-      </div>
-    </div>
-    <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
-         Model
-      </button>
-      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
-          <%= text_field_tag :model %>
-      </div>
-    </div>
-    <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
-         Year
-      </button>
-      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
-          <%= text_field_tag :year %>
-      </div>
-    </div>
-      <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
-         Price
-      </button>
-      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
-          <%= text_field_tag :price_per_day %>
-      </div>
-    </div>
-      <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
-         Seats
-      </button>
-      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
-          <%= text_field_tag :number_of_seats %>
-      </div>
-    </div>
-      <div class="dropdown dropdown-filter">
-      <%= select_tag :transmission, raw("<option selected disabled>Transmission</option><option>Manual</option><option>Automatic</option>") %>
-    </div>
-      <div class="dropdown dropdown-filter">
-      <%= select_tag :category, raw("<option selected disabled>Category</option><option>Van</option><option>City Car</option><option>SUV</option><option>Motorbike</option><option>Scooter</option><option>Convertible</option><option>4WD</option>") %>
-      </div>
-      <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
-         Location
-      </button>
-      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
-          <%= text_field_tag :location %>
-      </div>
-    </div>
-    <%= submit_tag "Filter now!", class: "button-yellow"%>
-  <% end %>
-</div>
-
-
-<div class="container">
-  <div class="row">
+<div class="container cards-container">
+  <div class="row main">
     <% @vehicules.each do |vehicule|%>
       <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path vehicule.photo %>');">
+      <% if vehicule.photo.file == nil %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
+      <% else %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path vehicule.photo %>');">
+      <% end %>
         <div class="card-category">Popular</div>
           <div class="card-description">
             <h2><%= vehicule.brand %></h2>
@@ -93,3 +23,15 @@
   </div>
 </div>
 
+<% if params[:location] %>
+<div
+  id="map"
+  class = "map_index"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+></div>
+
+<% else %>
+
+<% end %>
