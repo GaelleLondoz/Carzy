@@ -1,7 +1,7 @@
 <%= render 'filter' %>
 
-<div class="container cards-container">
-  <div class="row main">
+<div class="container main">
+  <div class="row cards-container">
     <% @vehicules.each do |vehicule|%>
       <div class="col-xs-12 col-sm-4">
       <% if vehicule.photo.file == nil %>
