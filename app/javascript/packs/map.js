@@ -1,25 +1,9 @@
 import GMaps from 'gmaps/gmaps.js';
 
 const mapElement = document.getElementById('map');
-if (mapElement) { // don't try to build a map if there's no div#map to inject in
-  const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
-  const markers = JSON.parse(mapElement.dataset.markers);
-  map.addMarkers(markers);
-  if (markers.length === 0) {
-    map.setZoom(2);
-  } else if (markers.length === 1) {
-    map.setCenter(markers[0].lat, markers[0].lng);
-    map.setZoom(14);
-  } else {
-    map.fitLatLngBounds(markers);
-  }
-}
 
-import { autocomplete } from '../components/autocomplete';
-autocomplete();
-
-
-[
+if (mapElement) {
+  const styles = [
     {
         "featureType": "water",
         "elementType": "geometry",
@@ -195,3 +179,39 @@ autocomplete();
         ]
     }
 ]
+
+
+  const map = new GMaps({
+    el: '#map',
+    lat: 0,
+    lng: 0,
+    gestureHandling: 'none',
+    zoomControl: false
+  });
+
+  const markers = JSON.parse(mapElement.dataset.markers);
+  console.log(markers);
+
+  map.addMarkers(markers);
+
+  if (markers.length === 0) {
+    map.setZoom(1);
+  } else if (markers.length === 1) {
+    map.setCenter(markers[0].lat + 0.012, markers[0].lng);
+    // map.setZoom(15);
+  } else {
+    map.fitLatLngBounds(markers);
+  }
+
+  map.addStyle({
+    styles: styles,
+    mapTypeId: 'map_style'
+  });
+  map.setStyle('map_style');
+
+
+
+}
+
+import { autocomplete } from '../components/autocomplete';
+autocomplete();
