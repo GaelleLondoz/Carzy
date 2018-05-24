@@ -196,11 +196,36 @@ if (mapElement) {
   map.addMarkers(markers);
 
   if (markers.length === 0) {
-    map.setZoom(1);
+    console.log('NO VEHICLE FOUND');
+
+    const queryURL = new URLSearchParams(window.location.search);
+    if (queryURL.has('location')) {
+      console.log('location found');
+      const geocoder = new google.maps.Geocoder();;
+      geocoder.geocode( { 'address': queryURL.get('location') }, function (results, status) {
+        console.log(status);
+        if (status == 'OK') {
+          const location = results[0].geometry.location;
+          map.setCenter({lat: location.lat(), lng: location.lng()});
+          map.setZoom(12);
+        }
+        else {
+          alert("Location not found");
+          //map.setZoom(4);
+        }
+      });
+    }
+    else {
+      alert("Location not found");
+      map.setZoom(4)
+    }
+
   } else if (markers.length === 1) {
+    console.log('ONE MARKER FOUND');
     map.setCenter(markers[0].lat + 0.012, markers[0].lng);
     // map.setZoom(15);
   } else {
+    console.log('MARKERS FOUND');
     map.fitLatLngBounds(markers);
   }
 
