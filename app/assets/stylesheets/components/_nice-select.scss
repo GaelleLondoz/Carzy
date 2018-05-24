@@ -21,6 +21,7 @@ div.nice-select
   border-image: initial;
   border-radius: 4px;
   text-decoration: none;
+  margin-left: 0px;
 }
 
 .button-grey {
@@ -46,8 +47,34 @@ div.nice-select
   border-radius: 4px;
   text-decoration: none;
   height: 41px;
+  margin-right: 10px;
 }
 
+.button-grey-last {
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: normal;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: rgb(72, 72, 72);
+  cursor: pointer;
+  display: inline-block;
+  padding-left: 12px;
+  padding-right: 12px;
+  position: relative;
+  text-align: center;
+  width: auto;
+  background: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(220, 224, 224);
+  border-image: initial;
+  border-radius: 4px;
+  text-decoration: none;
+  height: 41px;
+  margin-right: 5px;
+}
 input.button-yellow {
   font-weight: 400;
   font-size: 18px;
@@ -67,6 +94,6 @@ input.button-yellow {
   letter-spacing: normal;
   padding-top: 6px;
   padding-bottom: 6px;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 

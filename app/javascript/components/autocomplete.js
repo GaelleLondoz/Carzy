@@ -1,6 +1,6 @@
-function autocomplete() {
+function autocompletebyID(id) {
   document.addEventListener("DOMContentLoaded", function() {
-    var flatAddress = document.getElementById('vehicule_location');
+    var flatAddress = document.getElementById(id);
 
     if (flatAddress) {
       var autocomplete = new google.maps.places.Autocomplete(flatAddress, { types: [ 'geocode' ] });
@@ -11,6 +11,11 @@ function autocomplete() {
       });
     }
   });
+}
+
+function autocomplete() {
+    autocompletebyID('vehicule_location');
+    autocompletebyID('location');
 }
 
 export { autocomplete };
