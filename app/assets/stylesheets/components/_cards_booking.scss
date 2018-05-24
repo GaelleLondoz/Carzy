@@ -1,0 +1,96 @@
+.card-booking {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0 10px;
+    box-shadow: 0.6px 6px 12.6px 1.4px rgba(38, 38, 38, 0.15);
+}
+
+.booking-card-top {
+  display: flex;
+}
+
+
+.card-booking-photo {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+
+  }
+
+.card-user-booking {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    width: 39px;
+    border-radius: 50%;
+}
+
+.card-link-booking {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    /* padding: 15px; */
+    width: 100%;
+    z-index: 2;
+    background: black;
+    opacity: 0;
+}
+.booking-description {
+    margin-left: 8px;
+    margin: 32px 19px 24px 19px;
+}
+
+.booking-button-yellow{
+  margin: 0px 93px 28px 93px;
+  padding: 10px 20px;
+  font-weight: 400;
+  font-size: 18px;
+  background-color: #fece2f;
+  border-radius: 2px;
+  color: #333333;
+  font-size: 1.2em;
+  border: none;
+}
+ul.booking{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.booking_myrequests{
+  padding-left: 0;
+  list-style: none;
+  margin-left: 28px;
+  margin-bottom: 28px;
+}
+.title-car {
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 5px 0px 0px 0;
+    font-weight: 600;
+}
+
+.model-car {
+    font-size: 16px;
+    text-transform: capitalize;
+    margin: 0;}
+
+p.info_dates{
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+span.subtitle_booking {
+  font-weight: 600;
+  /* color: #fdcf3b; */
+}
+.booking-status {
+    font-size: 18px;
+    /* margin: auto; */
+    text-align: center;
+    padding: 8px;
+    position: absolute;
+    left: 0;
+}
