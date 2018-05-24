@@ -8,7 +8,9 @@ class PagesController < ApplicationController
   def profile
     @bookings_i_made = current_user.bookings
     @bookings_on_my_vehicule = current_user.bookings_on_vehicules
+    @vehicules = Vehicule.all
   end
+
 
   private
 
