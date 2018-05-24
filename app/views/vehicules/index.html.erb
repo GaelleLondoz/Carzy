@@ -3,35 +3,35 @@
 <div class="main">
   <div class="row cards-container">
     <% if @vehicules.empty? %>
-      <div class="col-xs-4 black-text">
-        Vehicule not found. Would you like to search again?
-        <form action="/vehicules" class="form-inline">
-          <input type="text" name="location"id= "vehicule_location" class="form-control input-lg" placeholder="Where ?">
-          <input type="submit" class="btn button-yellow" value="Search">
-        </form>
-      </div>
+    <div class="col-xs-4 black-text">
+      Vehicule not found. Would you like to search again?
+      <form action="/vehicules" class="form-inline">
+        <input type="text" name="location"id= "vehicule_location" class="form-control input-lg" placeholder="Where ?">
+        <input type="submit" class="btn button-yellow" value="Search">
+      </form>
+    </div>
     <% else %>
-      <% @vehicules.each do |vehicule|%>
-        <div class="<%= params[:location] ? "col-xs-4" : "col-xs-12 col-md-3 col-sm-4"%>">
-          <% if vehicule.photo.file == nil %>
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
-          <% else %>
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path vehicule.photo %>');">
-          <% end %>
-              <div class="card-category">
-                <%= vehicule.brand.upcase %>
-                <%= vehicule.model.capitalize %>
+    <div class="flex-wrap">
+      <% @vehicules.each do |vehicule| %>
+      <%= link_to vehicule_path(vehicule), style: 'text-decoration: none; color: black; text-align: left;' do %>
+          <div class="card-index">
+            <%= cl_image_tag vehicule.photo, height: 200, width: 300, class: 'card-img' %>
+            <div class="card-name">
+              <div class="flex-card-desc">
+                <div>
+                  <h1><%= vehicule.brand.upcase %></h1>
+                  <p><%= vehicule.model.capitalize %></p>
+                </div>
+                <h1>$<%= vehicule.price_per_day %></h1>
               </div>
-              <div class="card-description">
-                <h4><%= vehicule.price_per_day %>$</h4>
-              </div>
-              <%= link_to "Show", vehicule_path(vehicule), class: "card-link"  %>
             </div>
           </div>
-        <% end %>
       <% end %>
-  </div>
-  <% if params[:location] %>
+    <% end %>
+    <% end %>
+    </div>
+   </div>
+    <% if params[:location] %>
     <div id="map-container">
       <div
       id="map"
@@ -45,10 +45,9 @@
       data-markers="<%= @markers.to_json %>"
       ></div>
     </div>
-  <% else %>
+    <% else %>
 
-  <% end %>
+    <% end %>
 </div>
-
 
 
