@@ -1,20 +1,6 @@
-<div class="container">
+
   <%= form_tag '', method: :get do %>
   <div class="div-inline">
-
-    <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
-         Date
-      </button>
-      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
-        <%= render '/components/calendar' %>
-        <div class="input-group input-daterange">
-          <input type="text" class="form-control">
-          <div class="input-group-addon">to</div>
-          <input type="text" class="form-control">
-        </div>
-      </div>
-    </div>
     <div class="dropdown dropdown-filter">
       <button id="dLabel2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
          Brand
@@ -48,7 +34,7 @@
       </div>
     </div>
       <div class="dropdown dropdown-filter">
-      <button id="dLabel6" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
+      <button id="dLabel6" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey-last">
          Seats
       </button>
       <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel6">
@@ -61,14 +47,7 @@
       <div class="dropdown dropdown-filter">
       <%= select_tag :category, raw("<option selected disabled>Category</option><option>Van</option><option>City Car</option><option>SUV</option><option>Motorbike</option><option>Scooter</option><option>Convertible</option><option>4WD</option>") %>
       </div>
-      <div class="dropdown dropdown-filter">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="button-grey">
-         Location
-      </button>
-      <div class="dropdown-menu index-dropdown-menu" aria-labelledby="dLabel">
-          <%= text_field_tag :location %>
-      </div>
-    </div>
     <%= submit_tag "Filter now!", class: "button-yellow"%>
   <% end %>
 </div>
+
