@@ -16,7 +16,7 @@ data-markers="<%= @markers.to_json %>"
 
 <div class="show_container">
   <div class="container_elements">
-    <h1 class="show_h1"><%= @vehicule.brand  %> <%= @vehicule.model %> </h1>
+    <h1 class="show_h1"><%= @vehicule.brand.upcase  %> <%= @vehicule.model.capitalize %> </h1>
     <h2 class="show_h2"><%= @vehicule.year %></h2>
     <div class="flex">
       <ul class="show_ul">
@@ -58,7 +58,6 @@ data-markers="<%= @markers.to_json %>"
       <%= link_to "Delete", vehicule_path(@vehicule) , method: :delete , data: { confirm: "are you sure" }, class: "btn button-yellow" %>
       <% else %>
       <%= render 'bookings/form' %>
-      <%= link_to "Rent this car",  new_vehicule_booking_path(@vehicule) , class: "btn button-yellow" %>
       <% end %>
     </div>
   </div>

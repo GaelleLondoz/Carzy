@@ -1,7 +1,65 @@
-<p><%= current_user.email %> </p>
-<div class="container">
-  <h1>Confirmation page</h1>
-  <div class="wrapper-white">
-    <%= @booking.check_out - @booking.check_in %>
+<% if @vehicule.photo? %>
+<% photo_vehicule = cl_image_path @vehicule.photo, crop: :fill %>
+<% else %>
+<% photo_vehicule = image_path('not_available.png') %>
+<% end %>
+<div class="banner_conf" style="background-image: url('<%= photo_vehicule %>'); ">
+</div>
+<div class="cont-white"></div>
+
+<div class="show_container_conf new-booking">
+  <div class="container_elements_conf">
+    <h1 class="show_h1-conf"><%= @vehicule.brand.upcase  %> <%= @vehicule.model.capitalize %> </h1>
+    <div class="flex-conf">
+      <div class="desc-conf">
+        <ul class="list-inline">
+          <li><h1>$<%= @vehicule.price_per_day %></h1></li>
+          <li>per day</p></li>
+        </ul>
+      <h3 class="show_h3">Infos</h3>
+        <ul class="show_ul_conf">
+          <li class="show_li_conf"><%= image_tag("mileage.svg", size: "37x37", alt: "Icon mileage")%> <%= @vehicule.mileage %> kms</li>
+          <li class="show_li_conf"type=""><%= image_tag("transmission.svg", size: "37x37", alt: "Icon transmission")%> <%= @vehicule.transmission %> </li>
+          <li class="show_li_conf"><%= image_tag("car.svg", size: "37x37", alt: "Icon car")%> <%= @vehicule.category %></li>
+          <li class="show_li_conf"><%= image_tag("seats.svg", size: "37x37", alt: "Icon seats")%> <%= @vehicule.number_of_seats %> seats
+          </li>
+          <li class="show_li_conf"><%= image_tag("fuel_type.svg", size: "37x37", alt: "Icon fuel_type")%> <%= @vehicule.fuel_type %></li>
+        </ul>
+        <% days = (@booking.check_out - @booking.check_in).to_i %>
+        <% price = @vehicule.price_per_day.to_i %>
+      </div>
+      <div class="total">
+        <p class="conf-info">Dates</p>
+        <div class="flex-dates">
+          <p><%= @booking.check_in.to_s.gsub(/\-/, "/") %></p>
+          <p>TO</p>
+          <p><%= @booking.check_out.to_s.gsub(/\-/, "/") %></p>
+        </div>
+        <div class="flex-price-top vehicule-info-top">
+          <p>$<%= price %> x <%= days %> days</p>
+          <p><strong>$<%= night = price * days %></strong></p>
+        </div>
+        <div class="flex-price vehicule-info">
+          <p>Taxes</p>
+          <p><strong>$<%= tax = ((price * days) * 15) / 100 %></strong></p>
+        </div>
+        <div class="flex-price vehicule-info">
+          <p>Service fees</p>
+          <p><strong>$<%= service = ((night + tax) * 15) / 100 %></strong></p>
+        </div>
+        <div class="flex-price vehicule-total">
+          <p><strong>TOTAL</strong></p>
+          <p><strong>$<%= tax + night + service %></strong></p>
+        </div>
+        <%= simple_form_for([@vehicule, @booking]) do |f| %>
+          <%= f.input :check_in, { class: 'input-daterange' } %>
+          <%= f.input :check_out, { class: 'input-daterange' } %>
+          <%= f.submit 'Book this car', { class: 'button-yellow accept'} %>
+        <% end %>
+
+      </div>
+    </div>
   </div>
 </div>
+
+
