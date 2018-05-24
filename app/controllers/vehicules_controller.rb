@@ -12,6 +12,7 @@ class VehiculesController < ApplicationController
       lat: @vehicule.latitude,
       lng: @vehicule.longitude,
     }]
+    @booking = Booking.new
   end
 
   def new
@@ -21,7 +22,7 @@ class VehiculesController < ApplicationController
   def create
     @vehicule = Vehicule.new(vehicule_params)
     @vehicule.user_id = current_user.id
-    if @vehicule.save!
+    if @vehicule.save
       redirect_to vehicule_path(@vehicule)
     else
       render :new

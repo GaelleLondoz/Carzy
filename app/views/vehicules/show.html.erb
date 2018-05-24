@@ -48,7 +48,9 @@
 <!--     new_vehicule_booking_path -->
     <div class="button"><p>Delete</p></div>
   <% else %>
-  <div class="button"><p>Rent this car</p></div>
+
+  <%= render 'bookings/form' %>
+  <%= link_to "Rent this car",  new_vehicule_booking_path(@vehicule) , class: "btn button-yellow" %>
 <% end %>
 </div>
 </div>

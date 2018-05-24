@@ -2,13 +2,6 @@
 <div class="container">
   <h1>Confirmation page</h1>
   <div class="wrapper-white">
-<!--     <form action="/vehicules/:vehicule_id" class="form-inline" method="post">
-      <div class="input-daterange">
-        <input type="text" placeholder="Check-in" name="params[:check_in]" class="form-control">
-        <input type="text" placeholder="Check-in" name="params[:check_out]" class="form-control">
-        <input type="submit" class="button-yellow" placeholder="Confirm booking">
-      </div>
-    </form> -->
-    <%= render 'form' %>
+    <%= @booking.check_out - @booking.check_in %>
   </div>
 </div>

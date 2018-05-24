@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def new
-    @booking = Booking.new
+    @booking = Booking.new(check_in: params[:check_in], check_out: params[:check_out])
     @vehicule = Vehicule.find(params[:vehicule_id])
   end
 
