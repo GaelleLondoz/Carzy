@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
+
   has_many :vehicules
   has_many :bookings
 
@@ -10,4 +12,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   validates :first_name, presence: true
   validates :last_name, presence: true
+
+  def photo_file_name
+    self.email
+  end
 end
