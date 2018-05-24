@@ -3,8 +3,20 @@ class VehiculesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    filters = params.permit(:brand, :model, :number_of_seats, :price_per_day, :year, :transmission, :category, :location).to_h.delete_if { |k, v| v.empty? }
-    @vehicules = Vehicule.where(filters)
+    filters = params.permit(:brand, :model, :number_of_seats, :price_per_day, :year, :transmission, :category).to_h.delete_if { |k, v| v.empty? }
+    @vehicules = Vehicule.where(filters).where.not(latitude: nil, longitude: nil)
+
+    if params[:location].present?
+      @vehicules = @vehicules.near(params[:location], 5)
+    end
+
+
+    @markers = @vehicules.map do |vehicule|
+      {
+        lat: vehicule.latitude,
+        lng: vehicule.longitude
+      }
+    end
   end
 
   def show
@@ -39,6 +51,7 @@ class VehiculesController < ApplicationController
 
   def destroy
     @vehicule.destroy
+    redirect_to vehicules_path
   end
 
   private
@@ -48,6 +61,6 @@ class VehiculesController < ApplicationController
   end
 
   def vehicule_params
-    params.require(:vehicule).permit(:brand, :model, :mileage, :price_per_day, :year, :fuel_type, :transmission, :category, :photo, :location, :number_of_seats)
+    params.require(:vehicule).permit(:brand, :model, :mileage, :price_per_day, :year, :fuel_type, :transmission, :category, :photo, :location, :number_of_seats, :description)
   end
 end
