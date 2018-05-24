@@ -1,0 +1,122 @@
+.conf-info{
+  color: black;
+  margin-bottom: 3px;
+}
+
+.flex-dates{
+  border-radius: 3px;
+  border: solid 1px #fafafa;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: middle;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+}
+
+.banner-conf{
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.vehicule-info-top{
+  padding: 10px 0px;
+  border-top: none;
+}
+
+.vehicule-info{
+  padding: 10px 0px;
+  border-top: solid 1px #fafafa;
+}
+
+.vehicule-total{
+  padding: 10px 0px;
+  border-top: solid 1px #fafafa;
+  margin-bottom: 20px;
+}
+
+.flex-price{
+  padding: 10px 0px;
+  border-top: solid 1px #fafafa;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0px;
+}
+
+.flex-price-top{
+  padding: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0px;
+}
+
+.total{
+  padding: 20px;
+  width: 600px;
+  height : 400px;
+  box-shadow: 1px 1px 1px 1px rgba(38, 38, 38, 0.15);
+}
+
+input.button-yellow{
+  text-align: center;
+}
+
+.flex-conf{
+  display: flex;
+  justify-content: space-around;
+
+  margin-bottom: 25px;
+}
+
+.container_elements_conf{
+  padding: 25px 50px;
+  margin-top: 25px;
+}
+
+li.show_li_conf{
+  width: 48%;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  color: #333333;
+  margin: 8px 0px;
+}
+
+ul.show_ul_conf {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.show_container_conf {
+  width: 900px;
+  margin: auto;
+  height: auto;
+  background-color: #ffffff;
+  box-shadow: 0.6px 6px 12.6px 1.4px rgba(38, 38, 38, 0.15);
+  position: absolute;
+  z-index: 3;
+  top: calc(90vh - 70px);
+  left: calc(50vw - 450px);
+}
+
+.cont-white{
+  color: white;
+  height: 500px;
+  width: 100vw;
+}
+
+.show_h3-desc{
+  margin-top: 0px;
+}
+
+.show_h1-conf{
+  font-size: 41px;
+  font-weight: bold;
+  text-align: left;
+  color: #333333;
+  margin: 0 0 40px 0;
+  padding-top: 26px;
+}

@@ -24,6 +24,7 @@ class VehiculesController < ApplicationController
       lat: @vehicule.latitude,
       lng: @vehicule.longitude,
     }]
+    @booking = Booking.new
   end
 
   def new

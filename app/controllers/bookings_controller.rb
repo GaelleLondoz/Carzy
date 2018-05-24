@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def new
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
     @vehicule = Vehicule.find(params[:vehicule_id])
   end
 
@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.vehicule_id = @vehicule.id
     @booking.user = current_user
+
     if @booking.save
       flash[:notice] = "Booking request sent to #{@vehicule.user.first_name.capitalize}"
       redirect_to vehicule_path(@vehicule)
@@ -18,8 +19,14 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking.status = "accepted"
+    redirect_to profile_path
+  end
+
   def destroy
     @booking.destroy
+    redirect_to profile_path
   end
 
   private
