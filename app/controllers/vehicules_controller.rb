@@ -7,9 +7,8 @@ class VehiculesController < ApplicationController
     @vehicules = Vehicule.where(filters).where.not(latitude: nil, longitude: nil)
 
     if params[:location].present?
-      @vehicules = @vehicules.near(params[:location], 5)
+      @vehicules = @vehicules.near(params[:location], 50)
     end
-
 
     @markers = @vehicules.map do |vehicule|
       {
@@ -20,11 +19,20 @@ class VehiculesController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    # @reviews = Review.paginate(:page => params[:page])
+    # Review.paginate(:page => params[:page], :per_page => 3)
+    @reviews = Review.order(created_at: :desc).paginate(:per_page => 3, :page => params[:page])
     @markers = [{
       lat: @vehicule.latitude,
       lng: @vehicule.longitude,
     }]
     @booking = Booking.new
+
+    respond_to do |format|
+      format.html { render 'vehicules/show' }
+      format.js
+    end
   end
 
   def new

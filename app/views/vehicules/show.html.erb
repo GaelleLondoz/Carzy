@@ -18,6 +18,7 @@ data-markers="<%= @markers.to_json %>"
   <div class="container_elements">
     <h1 class="show_h1"><%= @vehicule.brand.upcase  %> <%= @vehicule.model.capitalize %> </h1>
     <h2 class="show_h2"><%= @vehicule.year %></h2>
+    <%= render 'reviews/rating_average', vehicule: @vehicule%>
     <div class="flex">
       <ul class="show_ul">
         <li class="show_li"><%= image_tag("mileage.svg", size: "37x37", alt: "Icon mileage")%> <%= @vehicule.mileage %> kms</li>
@@ -32,7 +33,7 @@ data-markers="<%= @markers.to_json %>"
       <h3 class="show_h3">Description</h3>
       <p class="description"><%= @vehicule.description  %> </p>
 
-      <h3 class="show_h3">Owner</h3>
+      <!-- <h3 class="show_h3">Owner</h3>
       <% if @vehicule.user.photo? %>
       <% photo_user = cl_image_path @vehicule.user.photo, :transformation=>[
         {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
@@ -40,16 +41,31 @@ data-markers="<%= @markers.to_json %>"
         ] %>
         <% else %>
         <% photo_user = image_path('user_avatar.png') %>
-        <% end %>
-        <div class="user_card">
+        <% end %> -->
+        <!-- <div class="user_card">
          <div class="avatar_user_random"></div>
 
          <div class="user_description">
           <span><%= @vehicule.user.first_name %> <%= @vehicule.user.last_name %></span>
           <p>Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
         </div>
-      </div>
+      </div> -->
+
     </div>
+
+
+    <div id="form">
+      <%= render 'reviews/form_review', vehicule: @vehicule, review: @review %>
+    </div>
+    <div id="reviews">
+      <% if @vehicule.reviews.empty? %>
+        <div id="empty">Be the first to leave a review for <%= @vehicule.brand %></div>
+      <% else %>
+        <%= render "reviews" %>
+      <% end %>
+    </div>
+
+
     <div class="center_button">
       <% if @vehicule.user == current_user %>
       <%= link_to "Edit", edit_vehicule_path(@vehicule) , class: "btn button-yellow" %>
@@ -59,9 +75,12 @@ data-markers="<%= @markers.to_json %>"
       <% else %>
       <%= render 'bookings/form' %>
       <% end %>
+      <a href="javascript:history.back()">Go Back</a>
     </div>
   </div>
 </div>
+
+<%= javascript_pack_tag "map" %>
 
 
 

@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:update, :destroy, :denied]
   def new
     @booking = Booking.new(booking_params)
     @vehicule = Vehicule.find(params[:vehicule_id])
@@ -20,7 +21,7 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.status = "accepted"
+    @booking.update(booking_params)
     redirect_to profile_path
   end
 
@@ -28,6 +29,7 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to profile_path
   end
+
 
   private
 

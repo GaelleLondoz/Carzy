@@ -1,6 +1,14 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to "CARZY", root_path, class: "navbar-link" %>
+  <ul class="list-inline">
+  <li><%= link_to "CARZY", root_path, class: "navbar-link" %></li>
+  <% unless ["home"].include?(params[:action]) %>
+  <li><form action="/vehicules" class="form-inline">
+    <input type="text" name="location"id= "location" class="form-control input-lg search-navbar">
+    <input type="submit" class="btn button-grey">
+  </form></li>
+  <% end %>
+ </ul>
 
   <!-- Right Navigation -->
   <% if user_signed_in? %>
