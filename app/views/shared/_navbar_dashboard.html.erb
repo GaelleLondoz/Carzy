@@ -1,30 +1,30 @@
-    <div class="grey_background">
-    <% sum = 0 %>
-    <% @vehicules.each do |vehicule|%>
-    <% if vehicule.user == current_user  %>
-    <% sum +=1%>
-    <% end %>
-    <% end %>
-    <% if sum > 0  %>
-    <div class="tab">
-      <button class="tablinks" onclick="openCity(event, 'mytrips')">My trips</button>
-      <button class="tablinks" onclick="openCity(event, 'mycars')">My cars</button>
-      <button class="tablinks" onclick="openCity(event, 'myrequests')"  id="defaultOpen">My requests</button>
-      <button class="tablinks" onclick="openCity(event, 'mysettings')">My settings</button>
-    </div>
-    <% else %>
-    <div class="tab">
-      <button class="tablinks" onclick="openCity(event, 'mytrips')"   id="defaultOpen" >My trips</button>
-      <button class="tablinks" onclick="openCity(event, 'mysettings')">My settings</button>
-    </div>
-    <% end %>
+      <div class="grey_background">
+      <% sum = 0 %>
+      <% @vehicules.each do |vehicule|%>
+      <% if vehicule.user == current_user  %>
+      <% sum +=1%>
+      <% end %>
+      <% end %>
+      <% if sum > 0  %>
+      <div class="tab">
+        <button class="tablinks" onclick="switchTab(event, 'mytrips')">My trips</button>
+        <button class="tablinks" onclick="switchTab(event, 'mycars')">My cars</button>
+        <button class="tablinks" onclick="switchTab(event, 'myrequests')"  id="defaultOpen">My requests</button>
+        <button class="tablinks" onclick="switchTab(event, 'mysettings')">My settings</button>
+      </div>
+      <% else %>
+      <div class="tab">
+        <button class="tablinks" onclick="switchTab(event, 'mytrips')"   id="defaultOpen" >My trips</button>
+        <button class="tablinks" onclick="switchTab(event, 'mysettings')">My settings</button>
+      </div>
+      <% end %>
 
-    <div class="container">
-      <div class="wrapper_booking">
-        <div id="mytrips" class="tabcontent">
-          <div class="container">
-            <div class="row">
-              <% @bookings_i_made.each do |booking| %>
+      <div class="container">
+        <div class="wrapper_booking">
+          <div id="mytrips" class="tabcontent">
+            <div class="container">
+              <div class="row">
+                <% @bookings_i_made.each do |booking| %>
 
               <div class="col-xs-12 col-sm-4 col-md-3 card-booking">
                 <div class="booking-card-top">
@@ -51,8 +51,6 @@
             <% end %>
           </div>
         </div>
-      </div>
-
       <div id="mycars" class="tabcontent">
         <div class="row cards-container">
           <% if @vehicules.empty? %>
@@ -134,31 +132,35 @@
             <% end %>
           </div>
         </div>
-      <div id="mysettings" class="tabcontent">
-        <h3>Tokyo</h3>
-        <p>Tokyo is the capital of Japan.</p>
+        <div id="mysettings" class="tabcontent edit-profile-container">
+          <%= render 'devise/registrations/edit' %>
+        </div>
       </div>
-    </div>
-    </div>
-    </div>
+      </div>
 
-    <script>
-    function openCity(evt, cityName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
+      <script>
+      function switchTab(evt, tabName) {
+        console.log(evt);
+        console.log(tabName);
 
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-    </script>
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+      </script>
 
 
