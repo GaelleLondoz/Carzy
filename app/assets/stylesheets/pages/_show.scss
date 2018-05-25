@@ -8,6 +8,11 @@
   z-index: -1;
 }
 
+
+span.spinbox-buttons {
+    display: none;
+}
+
 #map {
   height: 1100px;
 }
@@ -78,7 +83,6 @@
   .show_container {
     width: 900px;
     margin: auto;
-    height: 868px;
     background-color: #ffffff;
     box-shadow: 0.6px 6px 12.6px 1.4px rgba(38, 38, 38, 0.15);
     position: absolute;

@@ -1,0 +1,7 @@
+<%# byebug %>
+<div id="reviews-list">
+  <% @reviews.each do |review| %>
+    <%= render 'reviews/show', review: review %>
+  <% end %>
+</div>
+<%= will_paginate @reviews %>
