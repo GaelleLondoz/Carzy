@@ -1,0 +1,51 @@
+.edit-profile-container {
+  width: 900px;
+  margin: auto;
+  padding-top: 50px;
+}
+.edit-profile-container h3 {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.edit-profile-container p {
+  font-size: 14px;
+}
+.edit-photo-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px $light-gray;
+}
+.edit-name-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 1px $light-gray;
+  padding: 20px 0 20px 0;
+}
+.simple_form label {
+  margin: 10px 0;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+.simple_form input {
+  margin: 5px 50px 11px 0;
+  font-size: 0.9em;
+}
+.simple_form input {
+  margin: 5px 50px 11px 0;
+  font-size: 0.9em;
+}
+.edit-password-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0 20px 0;
+}
+.edit-btn-margin {
+  margin-bottom: 20px;
+}
+.edit-desactivate-container {
+  border-top: solid 1px $light-gray;
+}
+
