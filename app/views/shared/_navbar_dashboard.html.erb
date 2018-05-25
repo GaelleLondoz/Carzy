@@ -97,7 +97,20 @@
               <div class="booking-card-top">
                 <%= cl_image_tag booking.vehicule.photo, class: "card-booking-photo", height: 200, width: 300, crop: :fill %>
                 <% if booking.status == "pending" %>
-                  <p class="booking-status" style="background-color: #FF9800;  opacity: 0.7;"><%= booking.status.upcase %></p>
+                  <div class="flex-accept">
+                    <div>
+                    <%= simple_form_for [booking.vehicule, booking] do |f| %>
+                      <%= f.input :status, input_html: { value: 'accepted' }, as: :hidden %>
+                      <%= f.submit 'Accept', { class: 'button-yellow' } %>
+                    <% end %>
+                    </div>
+                    <div>
+                    <%= simple_form_for [booking.vehicule, booking] do |f| %>
+                      <%= f.input :status, input_html: { value: 'denied' }, as: :hidden %>
+                      <%= f.submit 'Reject', { class: 'button-yellow'} %>
+                    <% end %>
+                    </div>
+                  </div>
                 <% elsif booking.status == "accepted" %>
                 <p class="booking-status" style="background-color: #8BC34A; opacity: 0.7;"><%= booking.status.upcase %></p>
                 <% elsif booking.status == "denied" %>
@@ -109,23 +122,27 @@
                 <!-- <a class="card-link-booking" href="#" ></a> -->
               </div>
               <div class="booking-description">
-                <ul class="booking">
+                <ul class="list-inline">
                   <li class="title-car"><%= booking.vehicule.brand.upcase %></li>
                   <li class="model-car"><%= booking.vehicule.model.capitalize %></li>
                 </ul>
                 <p class="info_dates"><span class="subtitle_booking">Check-in :</span> <%= booking.check_in.to_s.gsub(/\-/, "/") %> <br><span class="subtitle_booking">Check-out :</span> <%= booking.check_out.to_s.gsub(/\-/, "/") %></p>
                 <p><%= booking.user.first_name.capitalize %></p>
                 <% if booking.status == "pending" %>
-                  <ul class="list-inline booking_myrequests">
-                    <li><%= simple_form_for [booking.vehicule, booking] do |f| %>
+                  <div class="flex-accept">
+                    <div>
+                    <%= simple_form_for [booking.vehicule, booking] do |f| %>
                       <%= f.input :status, input_html: { value: 'accepted' }, as: :hidden %>
                       <%= f.submit 'Accept', { class: 'button-yellow'} %>
-                    <% end %></li>
-                    <li><%= simple_form_for [booking.vehicule, booking] do |f| %>
+                    <% end %>
+                    </div>
+                    <div>
+                    <%= simple_form_for [booking.vehicule, booking] do |f| %>
                       <%= f.input :status, input_html: { value: 'denied' }, as: :hidden %>
                       <%= f.submit 'Reject', { class: 'button-yellow'} %>
-                    <% end %></li>
-                  </ul>
+                    <% end %>
+                    </div>
+                  </div>
                 <% end %>
               </div>
             </div>
