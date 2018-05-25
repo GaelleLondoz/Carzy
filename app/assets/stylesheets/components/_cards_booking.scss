@@ -17,6 +17,17 @@
 
   }
 
+.flex-accept {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 25px;
+  position: absolute;
+  top: 295px;
+  right: 0px;
+}
+
+
 .card-user-booking {
     position: absolute;
     right: 10px;
@@ -38,7 +49,7 @@
 }
 .booking-description {
     margin-left: 8px;
-    margin: 32px 19px 24px 19px;
+    margin: 4px 8px 10px 14px;
 }
 
 .booking-button-yellow{
@@ -65,7 +76,7 @@ ul.booking_myrequests{
   margin-bottom: 28px;
 }
 .title-car {
-    font-size: 18px;
+    font-size: 20px;
     text-transform: uppercase;
     padding: 0;
     margin: 5px 0px 0px 0;
@@ -73,7 +84,7 @@ ul.booking_myrequests{
 }
 
 .model-car {
-    font-size: 16px;
+    font-size: 18px;
     text-transform: capitalize;
     margin: 0;}
 
