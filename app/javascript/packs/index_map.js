@@ -185,8 +185,8 @@ if (mapElement) {
     el: '#map',
     lat: 45.5017,
     lng: -73.5673,
-    gestureHandling: 'none',
-    zoomControl: false
+    // gestureHandling: 'none',
+    // zoomControl: false
   });
 
   const markers = JSON.parse(mapElement.dataset.markers);
