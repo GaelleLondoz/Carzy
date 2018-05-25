@@ -1,6 +1,5 @@
 div.nice-select
  .button-grey {
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   line-height: 18px;
   letter-spacing: normal;
@@ -25,7 +24,6 @@ div.nice-select
 }
 
 .button-grey {
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   line-height: 18px;
   letter-spacing: normal;
@@ -50,8 +48,15 @@ div.nice-select
   margin-right: 10px;
 }
 
+.button-grey-navbar {
+  font-size: 14px;
+  border-color: rgb(220, 224, 224);
+  border-radius: 2px;
+  text-decoration: none;
+  height: 37px;
+}
+
 .button-grey-last {
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   line-height: 18px;
   letter-spacing: normal;
