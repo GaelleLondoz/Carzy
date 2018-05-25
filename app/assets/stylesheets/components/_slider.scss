@@ -10,17 +10,28 @@
 }
 
 .slider.slider-horizontal {
-  margin-left: 35px;
+  margin-left: 50px;
 }
 
 .slider-track {
   position: absolute;
   cursor: pointer;
-  background-color: black;
+  background-color: $light-gray;
   background-size: 2px 2px;
   background-repeat: repeat-x;
   background-image: none;
   filter: none;
   box-shadow: none;
+  border-radius: 4px;
+  width: 300px;
+}
+
+.slider-selection {
+  position: absolute;
+  background-image: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff9f9f9', endColorstr='#fff5f5f5', GradientType=0);
+  box-shadow: none;
+  box-sizing: border-box;
   border-radius: 4px;
 }
