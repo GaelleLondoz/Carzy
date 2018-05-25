@@ -10,112 +10,115 @@
 
 
 span.spinbox-buttons {
-    display: none;
+  display: none;
 }
 
 #map {
-  height: 1100px;
+  height: 1212px;
 }
 
-   .banner{
-      height: 80vh;
-      background-repeat: no-repeat;
-      background-size: cover;
-      z-index: 2;
-      position: relative;
-   }
+.banner{
+    height: 58vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 2;
+    position: relative;
+}
 
-  .avatar_user_random{
-    min-width: 109px;
-    height: 109px;
-    background-color: #e8e7e7;
-    border-radius: 50%;
-    margin-right: 20px;
-  }
-
-
-  h1.show_h1{
-    font-size: 41px;
-    font-weight: bold;
-    text-align: left;
-    color: #333333;
-    margin: 41px 0 0 0;
-    padding-top: 26px;
-  }
-
-  h2.show_h2{
-    font-size: 20px;
-    color: #333333;
-    margin: 0 0 11px 0;
-  }
-
-  h3.show_h3{
-    width: 100%;
-  }
-  .description {
-    font-size: 16px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: left;
-    color: #333333;
-  }
-
-  .user_description {
-    font-size: 16px;
-    text-align: left;
-    color: #333333;
-  }
-
-  .user_description span {
-    font-size: 18px;
-    font-weight: bold;
-  }
+.avatar_user_random{
+  min-width: 109px;
+  height: 109px;
+  background-color: #e8e7e7;
+  border-radius: 50%;
+  margin-right: 20px;
+}
 
 
-  .flex{
-    display: flex;
-    flex-wrap: wrap;
-  }
+h1.show_h1{
+  font-size: 41px;
+  font-weight: bold;
+  text-align: left;
+  color: #333333;
+  margin: 41px 0 0 0;
+  padding-top: 26px;
+}
 
-  .show_container {
-    width: 900px;
+h2.show_h2{
+  font-size: 20px;
+  color: #333333;
+  margin: 0 0 11px 0;
+}
+
+h3.show_h3{
+  width: 100%;
+}
+.description {
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #333333;
+}
+
+.user_description {
+  font-size: 16px;
+  text-align: left;
+  color: #333333;
+}
+
+.user_description span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.show_container {
+
+     width: 900px;
     margin: auto;
     background-color: #ffffff;
     box-shadow: 0.6px 6px 12.6px 1.4px rgba(38, 38, 38, 0.15);
     position: absolute;
     z-index: 3;
-    top: calc(90vh - 70px);
+    top: calc(90vh - 200px);
     left: calc(50vw - 450px);
-  }
+    padding-bottom: 38px;
+}
 
-  .container_elements{
-      width: 62%;
-      margin: auto;
-  }
+.container_elements{
+  width: 72%;
+  margin: auto;
+}
 
-  li.show_li{
-    width:50%;
-    font-size: 16px;
-    font-weight: 600;
-    text-align: left;
-    color: #333333;
-    margin: 8px 0px;
-  }
+li.show_li {
+  width: 34%;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  color: #333333;
+  margin: 8px 0px;
+}
 
-  ul.show_ul {
-    list-style-type: none;
-    padding: 0;
-    width: 600px;
-    display: flex;
-    flex-wrap: wrap;
-  }
 
-  ul.show_ul li.show_li img{
-   margin-right: 15px;
-  }
+ul.show_ul {
+  list-style-type: none;
+  padding: 0;
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul.show_ul li.show_li img{
+ margin-right: 15px;
+}
 
 
 .user_card{
@@ -134,72 +137,73 @@ span.spinbox-buttons {
 
 .center_button a.btn.button-yellow {
   margin: 37px 5px;
-  }
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-.banner {
-     height: 406px;
 }
 
-
-.avatar_user_random {
-    width: 109px;
-    height: 109px;
-    background-color: #e8e7e7;
-    border-radius: 50%;
-    margin-right: 53px;
-}
-
-.show_container {
-  width: 95%;
-  box-shadow: 0.6px 6px 12.6px 1.4px rgba(38, 38, 38, 0.15);
-
-  padding-bottom: 40px;
-  top: Opx;
-}
-
-.new-booking form .form-group {
-  display: none;
-}
-
-.container_elements {
-    width: 80%;
-    margin: auto;
-}
-}
-
-@media only screen and (max-width: 767px) {
- .banner{
-    height: 209px;
-    width: 100%;
- }
-
-.show_container {
-    width: 100%;
-}
-
-.container_elements {
-    width: 80%;
-    margin: auto;
-}
+.total_showpage  {
+  width: 288px;
+    height: 318px;
+  display: block;
+  position: absolute;
+  top: 69px;
+  right: 99px;
+  background: white;}
 
 
-p {
-    font-size: 1em;
-    margin: 0 0 12.5px;
-}
-
-.avatar_user_random {
-    width: 140px;
-    height: 140px;
-    background-color: #e8e7e7;
-    border-radius: 50%;
-    margin: 12px auto;
-}
-
-.show_container {
-    padding-bottom: 40px;
-    top: -40px;
-    height: 100%;
+  .total_showpage input#booking_check_in, .total_showpage input#booking_check_out {
+    margin: 0;
+    padding: 5px;
     box-shadow: none;
+  }
+
+.back-button{
+      color: #333333;
+    position: absolute;
+    font-size: 24px;
+    top: 75px;
+    left: 60px;
 }
+
+.back-button:hover{
+      color: #fece2f;
+}
+
+input#review_rating {
+    width: 101%;
+}
+
+.reviews_bloc .input-group.spinbox {
+    width: 100%;
+}
+div#empty {
+    color: #9E9E9E;
+}
+
+.reviews_bloc{
+  margin-top: 20px;
+}
+
+div#reviews-list {
+    height: 100px;
+}
+
+.reviews_bloc a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.reviews_bloc a:hover {
+    color: #fece30
+}
+
+
+.reviews_bloc .current{
+    color: #fece30;
+    font-style: normal;
+}
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+
+     margin: 10px 0 0 0;
+    border-radius: 2px;
 }

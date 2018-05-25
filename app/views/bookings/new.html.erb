@@ -3,11 +3,11 @@
 <% else %>
 <% photo_vehicule = image_path('not_available.png') %>
 <% end %>
-<div class="banner_conf" style="background-image: url('<%= photo_vehicule %>'); ">
-</div>
+
+<div class="banner" style="background-image: url('<%= photo_vehicule %>'); "></div>
 <div class="cont-white"></div>
 
-<div class="show_container_conf new-booking">
+<div class="show_container show_container_conf new-booking ">
   <div class="container_elements_conf">
     <h1 class="show_h1-conf"><%= @vehicule.brand.upcase  %> <%= @vehicule.model.capitalize %> </h1>
     <div class="flex-conf">

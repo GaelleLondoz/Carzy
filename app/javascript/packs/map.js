@@ -222,7 +222,7 @@ if (mapElement) {
 
   } else if (markers.length === 1) {
     console.log('ONE MARKER FOUND');
-    map.setCenter(markers[0].lat + 0.012, markers[0].lng);
+    map.setCenter(markers[0].lat + 0.015, markers[0].lng);
     // map.setZoom(15);
   } else {
     console.log('MARKERS FOUND');
