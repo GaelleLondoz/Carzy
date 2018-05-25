@@ -1,121 +1,126 @@
-    <div class="grey_background">
-    <% sum = 0 %>
-    <% @vehicules.each do |vehicule|%>
-    <% if vehicule.user == current_user  %>
-    <% sum +=1%>
-    <% end %>
-    <% end %>
-    <% if sum > 0  %>
-    <div class="tab">
-      <button class="tablinks" onclick="openCity(event, 'mytrips')">My trips</button>
-      <button class="tablinks" onclick="openCity(event, 'mycars')">My cars</button>
-      <button class="tablinks" onclick="openCity(event, 'myrequests')"  id="defaultOpen">My requests</button>
-      <button class="tablinks" onclick="openCity(event, 'mysettings')">My settings</button>
-    </div>
-    <% else %>
-    <div class="tab">
-      <button class="tablinks" onclick="openCity(event, 'mytrips')"   id="defaultOpen" >My trips</button>
-      <button class="tablinks" onclick="openCity(event, 'mysettings')">My settings</button>
-    </div>
-    <% end %>
+      <div class="grey_background">
+      <% sum = 0 %>
+      <% @vehicules.each do |vehicule|%>
+      <% if vehicule.user == current_user  %>
+      <% sum +=1%>
+      <% end %>
+      <% end %>
+      <% if sum > 0  %>
+      <div class="tab">
+        <button class="tablinks" onclick="switchTab(event, 'mytrips')">My trips</button>
+        <button class="tablinks" onclick="switchTab(event, 'mycars')">My cars</button>
+        <button class="tablinks" onclick="switchTab(event, 'myrequests')"  id="defaultOpen">My requests</button>
+        <button class="tablinks" onclick="switchTab(event, 'mysettings')">My settings</button>
+      </div>
+      <% else %>
+      <div class="tab">
+        <button class="tablinks" onclick="switchTab(event, 'mytrips')"   id="defaultOpen" >My trips</button>
+        <button class="tablinks" onclick="switchTab(event, 'mysettings')">My settings</button>
+      </div>
+      <% end %>
 
-    <div class="container">
-      <div class="wrapper_booking">
-        <div id="mytrips" class="tabcontent">
+      <div class="container">
+        <div class="wrapper_booking">
+          <div id="mytrips" class="tabcontent">
+            <div class="container">
+              <div class="row">
+                <% @bookings_i_made.each do |booking| %>
+
+                <div class="col-xs-12 col-sm-4 col-md-3 card-booking">
+                  <div class="booking-card-top">
+                    <%= cl_image_tag booking.vehicule.photo, class: "card-booking-photo", crop: :fill %>
+                    <img class="card-user-booking" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                    <% if booking.status == "pending" %>
+                    <p class="booking-status" style="background-color: #FF9800;"><%= booking.status.upcase %></p>
+                    <% elsif booking.status == "accepted" %>
+                    <p class="booking-status" style="background-color: #8BC34A;"<%= booking.status.upcase %></p>
+                    <% elsif booking.status == "denied" %>
+                    <p class="booking-status" style="background-color: #F44336;"><%= booking.status.upcase %></p>
+                    <% end %>
+                    <a class="card-link-booking" href="#" ></a>
+                  </div>
+                  <div class="booking-description">
+                    <ul class="booking">
+                      <li class="title-car"><%= booking.vehicule.brand.capitalize %></li>
+                      <li class="model-car"><%= booking.vehicule.model %></li>
+                    </ul>
+                    <p class="info_dates"><span class="subtitle_booking">Check-in :</span> <%= booking.check_in %> <br><span class="subtitle_booking">Check-out :</span> <%= booking.check_out %></p>
+                  </div>
+                  <button class="booking-button-yellow">Cancel</button>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div id="mycars" class="tabcontent">
+          <h3>Paris</h3>
+          <p>Paris is the capital of France.</p>
+        </div>
+
+        <div id="myrequests" class="tabcontent">
           <div class="container">
-            <div class="row">
-              <% @bookings_i_made.each do |booking| %>
-
-              <div class="col-xs-12 col-sm-4 col-md-3 card-booking">
-                <div class="booking-card-top">
-                  <%= cl_image_tag booking.vehicule.photo, class: "card-booking-photo", crop: :fill %>
-                  <img class="card-user-booking" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+              <div class="row">
+                <% @bookings_i_made.each do |booking| %>
+                <div class="col-xs-12 col-sm-4 col-md-3 card-booking">
+                  <div class="booking-card-top">
+                    <%= cl_image_tag booking.vehicule.photo, class: "card-booking-photo", crop: :fill %>
+                    <img class="card-user-booking" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                    <% if booking.status == "pending" %>
+                    <p class="booking-status" style="background-color: #FF9800;"><%= booking.status.upcase %></p>
+                    <% elsif booking.status == "accepted" %>
+                    <p class="booking-status" style="background-color: #F44336;"><%= booking.status.upcase %></p>
+                    <% end %>
+                    <a class="card-link-booking" href="#" ></a>
+                  </div>
+                  <div class="booking-description">
+                    <ul class="booking">
+                      <li class="title-car"><%= booking.vehicule.brand.capitalize %></li>
+                      <li class="model-car"><%= booking.vehicule.model %></li>
+                    </ul>
+                    <p class="info_dates"><span class="subtitle_booking">Check-in :</span> <%= booking.check_in %> <br><span class="subtitle_booking">Check-out :</span> <%= booking.check_out %></p>
+                    <p><%= booking.user.first_name %></p>
+                  </div>
                   <% if booking.status == "pending" %>
-                  <p class="booking-status" style="background-color: #FF9800;"><%= booking.status.upcase %></p>
-                  <% elsif booking.status == "accepted" %>
-                  <p class="booking-status" style="background-color: #8BC34A;"<%= booking.status.upcase %></p>
-                  <% elsif booking.status == "denied" %>
-                  <p class="booking-status" style="background-color: #F44336;"><%= booking.status.upcase %></p>
+                    <ul class="list-inline booking_myrequests">
+                      <li><button class="button-yellow">Accept</button></li>
+                      <li><button class="button-yellow">Reject</button></li>
+                    </ul>
                   <% end %>
-                  <a class="card-link-booking" href="#" ></a>
                 </div>
-                <div class="booking-description">
-                  <ul class="booking">
-                    <li class="title-car"><%= booking.vehicule.brand.capitalize %></li>
-                    <li class="model-car"><%= booking.vehicule.model %></li>
-                  </ul>
-                  <p class="info_dates"><span class="subtitle_booking">Check-in :</span> <%= booking.check_in %> <br><span class="subtitle_booking">Check-out :</span> <%= booking.check_out %></p>
-                </div>
-                <button class="booking-button-yellow">Cancel</button>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div id="mycars" class="tabcontent">
-        <h3>Paris</h3>
-        <p>Paris is the capital of France.</p>
-      </div>
-
-      <div id="myrequests" class="tabcontent">
-        <div class="container">
-            <div class="row">
-              <% @bookings_i_made.each do |booking| %>
-              <div class="col-xs-12 col-sm-4 col-md-3 card-booking">
-                <div class="booking-card-top">
-                  <%= cl_image_tag booking.vehicule.photo, class: "card-booking-photo", crop: :fill %>
-                  <img class="card-user-booking" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-                  <% if booking.status == "pending" %>
-                  <p class="booking-status" style="background-color: #FF9800;"><%= booking.status.upcase %></p>
-                  <% elsif booking.status == "accepted" %>
-                  <p class="booking-status" style="background-color: #F44336;"><%= booking.status.upcase %></p>
-                  <% end %>
-                  <a class="card-link-booking" href="#" ></a>
-                </div>
-                <div class="booking-description">
-                  <ul class="booking">
-                    <li class="title-car"><%= booking.vehicule.brand.capitalize %></li>
-                    <li class="model-car"><%= booking.vehicule.model %></li>
-                  </ul>
-                  <p class="info_dates"><span class="subtitle_booking">Check-in :</span> <%= booking.check_in %> <br><span class="subtitle_booking">Check-out :</span> <%= booking.check_out %></p>
-                  <p><%= booking.user.first_name %></p>
-                </div>
-                <% if booking.status == "pending" %>
-                  <ul class="list-inline booking_myrequests">
-                    <li><button class="button-yellow">Accept</button></li>
-                    <li><button class="button-yellow">Reject</button></li>
-                  </ul>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
+        <div id="mysettings" class="tabcontent">
+          <%= render 'devise/registrations/edit' %>
         </div>
-      <div id="mysettings" class="tabcontent">
-        <h3>Tokyo</h3>
-        <p>Tokyo is the capital of Japan.</p>
       </div>
-    </div>
-    </div>
-    </div>
+      </div>
 
-    <script>
-    function openCity(evt, cityName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
+      <script>
+      function switchTab(evt, tabName) {
+        console.log(evt);
+        console.log(tabName);
 
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-    </script>
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+      </script>
 
 
