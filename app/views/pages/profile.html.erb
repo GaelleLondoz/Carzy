@@ -1,9 +1,10 @@
 <div class="container">
+  <div class="edit-profile-container">
+    <%= render 'devise/registrations/edit' %>
+  </div>
+</div>
 
-
-  <%= render 'devise/registrations/edit' %>
-
-<!--   <div class="wrapper-white">
+  <!--   <div class="wrapper-white">
     <% @bookings_i_made.each do |booking| %>
       <div class="booking-card">
         <%= cl_image_tag booking.vehicule.photo, height: 300, width: 300, crop: :fill %>
