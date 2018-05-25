@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :vehicules do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create, :update, :destroy]
   end
   get '/profile', to: 'pages#profile'
   # delete "/vehicules/", to: "vehicules#destroy", as: :destroy

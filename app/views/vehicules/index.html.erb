@@ -1,37 +1,53 @@
 <%= render 'filter' %>
 
-<div class="container main">
+<div class="main">
   <div class="row cards-container">
-    <% @vehicules.each do |vehicule|%>
-      <div class="col-xs-12 col-sm-4">
-      <% if vehicule.photo.file == nil %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
-      <% else %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path vehicule.photo %>');">
-      <% end %>
-        <div class="card-category">Popular</div>
-          <div class="card-description">
-            <h2><%= vehicule.brand %></h2>
-            <p><%= vehicule.model %></p>
-          </div>
-        </div>
-          <a><%= link_to "Show", vehicule_path(vehicule), class: "card-link"  %></a>
-        </div>
-      <% end %>
-      </div>
+    <% if @vehicules.empty? %>
+    <div class="col-xs-4 black-text">
+      Vehicule not found. Would you like to search again?
+      <form action="/vehicules" class="form-inline">
+        <input type="text" name="location"id= "vehicule_location" class="form-control input-lg" placeholder="Where ?">
+        <input type="submit" class="btn button-yellow" value="Search">
+      </form>
     </div>
-  </div>
+    <% else %>
+    <div class="flex-wrap">
+      <% @vehicules.each do |vehicule| %>
+      <%= link_to vehicule_path(vehicule), style: 'text-decoration: none; color: black; text-align: left;' do %>
+          <div class="card-index">
+            <%= cl_image_tag vehicule.photo, height: 200, width: 300, class: 'card-img' %>
+            <div class="card-name">
+              <div class="flex-card-desc">
+                <div>
+                  <h1><%= vehicule.brand.upcase %></h1>
+                  <p><%= vehicule.model.capitalize %></p>
+                </div>
+                <h1>$<%= vehicule.price_per_day %></h1>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    <% end %>
+    <% end %>
+    </div>
+   </div>
+    <% if params[:location] %>
+    <div id="map-container">
+      <div
+      id="map"
+      style="
+      width: 600px;
+      flex: 0 0 550px;
+      height: 101.5%;
+      position: sticky !important;
+      top: -10px !important;
+      right: 0 !important;"
+      data-markers="<%= @markers.to_json %>"
+      ></div>
+    </div>
+    <% else %>
+
+    <% end %>
 </div>
 
-<% if params[:location] %>
-<div
-  id="map"
-  class = "map_index"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-></div>
 
-<% else %>
-
-<% end %>

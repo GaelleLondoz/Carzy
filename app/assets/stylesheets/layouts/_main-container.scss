@@ -14,7 +14,20 @@
 }
 .main {
   display: flex;
+  width: 100%;
 }
 .cards-container {
   flex-grow: 1;
+  width: 800px;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  padding: 50px;
+}
+.card {
+  margin: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
 }

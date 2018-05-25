@@ -1,3 +1,12 @@
+.new-booking form .form-group {
+  display: none;
+}
+
+.banner_conf{
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+}
 
 #map {
   height: 1100px;
@@ -25,7 +34,6 @@
     font-weight: bold;
     text-align: left;
     color: #333333;
-    text-transform: uppercase;
     margin: 41px 0 0 0;
     padding-top: 26px;
   }
@@ -145,21 +153,24 @@
   top: Opx;
 }
 
+.new-booking form .form-group {
+  display: none;
+}
+
 .container_elements {
     width: 80%;
     margin: auto;
 }
 }
+
 @media only screen and (max-width: 767px) {
- .banner
- {
-      height: 209px;
+ .banner{
+    height: 209px;
     width: 100%;
  }
 
 .show_container {
     width: 100%;
-
 }
 
 .container_elements {

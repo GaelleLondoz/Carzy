@@ -1,0 +1,59 @@
+.grey_background{
+
+      background-color: #f4f4f475;
+}
+
+.wrapper_booking{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 4px;
+  padding: 30px;
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  height: 50px;
+  color: #333;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.07), 0 1px 0 0 rgba(0, 0, 0, 0.03);
+  background: #f4f4f4;
+}
+
+
+.tab button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  min-width: 200px;
+  background: #f4f4f4;
+  border-bottom: solid 3px #FFFFFF00;
+}
+
+button.tablinks {
+    font-weight: 500;
+    font-size: 14px;
+  }
+.tab button:hover {
+  text-decoration: none;
+  border-bottom: solid 3px #fece2f;
+  min-width: 200px;
+  background: #f4f4f4;
+}
+
+
+.tab button.active {
+  text-decoration: none;
+  border-bottom: solid 3px #fece2f;
+  min-width: 200px;
+  background: #f4f4f4;
+}
+
+.tabcontent {
+  display: none;
+
+}
+

@@ -1,5 +1,5 @@
-<%= simple_form_for [@vehicule, @booking] do |f| %>
+<%= simple_form_for([@vehicule, @booking], url: new_vehicule_booking_path(@vehicule), method: :get) do |f| %>
 <%= f.input :check_in, { class: 'input-daterange' } %>
 <%= f.input :check_out, { class: 'input-daterange' } %>
-<%= f.submit 'Confirm booking', { class: 'button-yellow'} %>
+<%= f.submit 'Book this car', { class: 'button-yellow accept'} %>
 <% end %>
