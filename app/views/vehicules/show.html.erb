@@ -23,7 +23,7 @@ data-markers="<%= @markers.to_json %>"
         <li class="show_li"><%= image_tag("mileage.svg", size: "37x37", alt: "Icon mileage")%> <%= @vehicule.mileage %> kms</li>
         <li class="show_li"type=""><%= image_tag("transmission.svg", size: "37x37", alt: "Icon transmission")%> <%= @vehicule.transmission %> </li>
         <li class="show_li"><%= image_tag("car.svg", size: "37x37", alt: "Icon car")%> <%= @vehicule.category %></li>
-        <li class="show_li"><%= image_tag("dollar.svg", size: "37x37", alt: "Icon dollar")%> <%= @vehicule.price_per_day %> /day</li>
+        <li class="show_li"><%= image_tag("dollar.svg", size: "37x37", alt: "Icon dollar")%> $<%= @vehicule.price_per_day %>/day</li>
         <li class="show_li"><%= image_tag("seats.svg", size: "37x37", alt: "Icon seats")%> <%= @vehicule.number_of_seats %> seats
         </li>
         <li class="show_li"><%= image_tag("fuel_type.svg", size: "37x37", alt: "Icon fuel_type")%> <%= @vehicule.fuel_type %></li>
