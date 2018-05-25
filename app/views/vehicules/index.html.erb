@@ -31,7 +31,7 @@
     <% end %>
     </div>
   </div>
-    <% if params[:location] && @vehicules.any? %>
+    <!-- < if params[:location] && @vehicules.any? %> -->
     <div id="map-container">
       <div
       id="map"
@@ -45,9 +45,9 @@
       data-markers="<%= @markers.to_json %>"
       ></div>
     </div>
-    <% else %>
+    <!-- < else %> -->
 
-    <% end %>
+    <!-- < end %> -->
 </div>
 
 <%= javascript_pack_tag "index_map" %>
