@@ -8,35 +8,40 @@
   margin-top: 0px;
 }
 
-.card-name{
+.card-name {
   padding: 10px;
   width: 300px;
 }
 
-.flex-card-desc{
+.flex-card-desc {
   display: flex;
   justify-content: space-between;
   align-items: middle;
   color: black;
 }
 
-.card-index{
+.card-index {
   margin: 10px;
   width: 300px;
   height: 280px;
   box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
-  h1{
-    font-size: 23px;
+  h1 {
+    font-size: 0.35em;
     margin-top: 0px;
     margin-bottom: 3px;
   }
-  p{
-    font-size: 18px;
+  h2 {
+    font-size: 0.5em;
+    margin-top: 0px;
+    margin-bottom: 3px;
+  }
+  p {
+    font-size: 0.3em;
     font-weight: lighter;
   }
 }
 
-.flex-wrap{
+.flex-wrap {
   display: flex;
   flex-wrap: wrap;
 }
