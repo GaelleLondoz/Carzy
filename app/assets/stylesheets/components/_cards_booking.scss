@@ -1,7 +1,7 @@
 .card-booking {
     padding-left: 0px;
     padding-right: 0px;
-    margin: 0 10px;
+    margin: 10px 10px;
     box-shadow: 0.6px 6px 12.6px 1.4px rgba(38, 38, 38, 0.15);
 }
 
@@ -94,3 +94,15 @@ span.subtitle_booking {
     position: absolute;
     left: 0;
 }
+
+.booking-status-delete {
+    font-size: 18px;
+    /* margin: auto; */
+    text-align: center;
+    padding: 8px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+

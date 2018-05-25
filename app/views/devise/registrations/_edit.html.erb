@@ -1,0 +1,46 @@
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="edit-photo-container">
+      <div class="avatar-large">
+        <% if current_user.photo? %>
+          <%= cl_image_tag current_user.photo.url(:bright_face) %>
+        <% else %>
+          <%= image_tag("default_avatar") %>
+        <% end %>
+      </div>
+      <div >
+        <h3>Change avatar</h3>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+      </div>
+  </div>
+
+  <div class="edit-name-container">
+    <%= f.input :first_name, required: true, input_html: { value: current_user.first_name.capitalize } %>
+    <%= f.input :last_name, required: true, input_html: { value: current_user.last_name.capitalize } %>
+
+    <%= f.input :email, required: true, autofocus: true, input_html: { value: current_user.email } %>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <% end %>
+  </div>
+
+  <h3>Change Password</h3>
+  <div class="edit-password-container">
+    <%= f.input :current_password, required: true %>
+    <%= f.input :password, autocomplete: "off", required: false%>
+    <%= f.input :password_confirmation, required: false %>
+
+  </div>
+  <div class="form-actions edit-btn-margin">
+    <%= f.button :submit, "Update", class: 'btn button-yellow' %>
+  </div>
+<% end %>
+
+<div class="edit-desactivate-container">
+  <h3>Desactivate My Account</h3>
+</div>
+
+<p>Unhappy with Carzy ? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
