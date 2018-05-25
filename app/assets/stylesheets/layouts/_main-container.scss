@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  min-height: calc(100vh - 170px);
 }
 .map_index {
   flex: 0 0 450px;
