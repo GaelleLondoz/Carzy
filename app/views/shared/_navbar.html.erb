@@ -1,14 +1,21 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <ul class="list-inline">
-  <li><%= link_to "CARZY", root_path, class: "navbar-link" %></li>
+  <div class="navbar-wagon-left">
+    <div  alt="logo">
+      <%= image_tag asset_path("car.svg"), class: "navbar-wagon-brand" %>
+    </div>
+    <div>
+      <%= link_to "CARZY", root_path, class: "navbar-wagon-brand-link" %>
+    </div>
+
+
   <% unless ["home"].include?(params[:action]) %>
-  <li><form action="/vehicules" class="form-inline">
+  <form action="/vehicules" class="form-inline">
     <input type="text" name="location"id= "location" class="form-control input-lg search-navbar">
-    <input type="submit" class="btn button-grey">
-  </form></li>
+    <input type="submit" class="btn button-grey-navbar">
+  </form>
   <% end %>
- </ul>
+ </div>
 
   <!-- Right Navigation -->
   <% if user_signed_in? %>
