@@ -7,9 +7,8 @@ class VehiculesController < ApplicationController
     @vehicules = Vehicule.where(filters).where.not(latitude: nil, longitude: nil)
 
     if params[:location].present?
-      @vehicules = @vehicules.near(params[:location], 5)
+      @vehicules = @vehicules.near(params[:location], 50)
     end
-
 
     @markers = @vehicules.map do |vehicule|
       {
