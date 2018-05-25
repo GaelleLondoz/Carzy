@@ -53,19 +53,6 @@ data-markers="<%= @markers.to_json %>"
 
     </div>
 
-
-    <div id="form">
-      <%= render 'reviews/form_review', vehicule: @vehicule, review: @review %>
-    </div>
-    <div id="reviews">
-      <% if @vehicule.reviews.empty? %>
-        <div id="empty">Be the first to leave a review for <%= @vehicule.brand %></div>
-      <% else %>
-        <%= render "reviews" %>
-      <% end %>
-    </div>
-
-
     <div class="center_button">
       <% if @vehicule.user == current_user %>
       <%= link_to "Edit", edit_vehicule_path(@vehicule) , class: "btn button-yellow" %>
@@ -77,7 +64,21 @@ data-markers="<%= @markers.to_json %>"
       <% end %>
       <a href="javascript:history.back()">Go Back</a>
     </div>
+
+
   </div>
+
+         <div id="form">
+      <%= render 'reviews/form_review', vehicule: @vehicule, review: @review %>
+    </div>
+    <div id="reviews">
+      <% if @vehicule.reviews.empty? %>
+        <div id="empty">Be the first to leave a review for <%= @vehicule.brand %></div>
+      <% else %>
+        <%= render "reviews" %>
+      <% end %>
+    </div>
+
 </div>
 
 <%= javascript_pack_tag "map" %>
