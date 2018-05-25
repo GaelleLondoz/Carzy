@@ -3,7 +3,15 @@
   padding: 0;
   width: 100%;
 }
-
+.padded-footer {
+  margin: 150px 0 0 0;
+}
+.map_index {
+  flex: 0 0 450px;
+  height: 100vh;
+  position: sticky !important;
+  top: 0 !important;
+}
 .main {
   display: flex;
   width: 100%;
