@@ -24,18 +24,17 @@
         <div id="mytrips" class="tabcontent">
           <div class="container">
             <div class="row">
-              <%= current_user.email %>
               <% @bookings_i_made.each do |booking| %>
 
               <div class="col-xs-12 col-sm-4 col-md-3 card-booking">
                 <div class="booking-card-top">
                   <%= cl_image_tag booking.vehicule.photo, class: "card-booking-photo", height: 200, width: 300, crop: :fill %>
                   <% if booking.status == "pending" %>
-                  <p class="booking-status" style="color: #FF9800;"><%= booking.status.upcase %></p>
+                    <p class="booking-status" style="color: #FF9800;"><%= booking.status.upcase %></p>
                   <% elsif booking.status == "accepted" %>
-                  <p class="booking-status" style="color: #8BC34A;"><%= booking.status.upcase %></p>
+                    <p class="booking-status" style="color: #8BC34A;"><%= booking.status.upcase %></p>
                   <% elsif booking.status == "denied" %>
-                  <p class="booking-status" style="color: #F44336;"><%= booking.status.upcase %></p>
+                    <p class="booking-status" style="color: #F44336;"><%= booking.status.upcase %></p>
                   <% end %>
                 </div>
                 <div class="booking-description">
@@ -55,8 +54,41 @@
       </div>
 
       <div id="mycars" class="tabcontent">
-        <h3>Paris</h3>
-        <p>Paris is the capital of France.</p>
+        <div class="row cards-container">
+          <% if @vehicules.empty? %>
+            <div class="col-xs-4 black-text">
+              You don't have any vehicules yet...
+              <%= link_to 'Create one?', new_vehicule_path, class: 'button-yellow' %>
+            </div>
+          <% else %>
+            <div class="flex-wrap">
+              <% @vehicules.each do |vehicule| %>
+                <div class="card-index">
+                  <%= cl_image_tag vehicule.photo, height: 200, width: 300, class: 'card-img' %>
+                  <div class="card-name">
+                    <div class="flex-card-desc">
+                      <div>
+                        <h1><%= vehicule.brand.upcase %></h1>
+                        <p><%= vehicule.model.capitalize %></p>
+                      </div>
+                      <div>
+                        <ul class="list-inline">
+                          <li><h1>$<%= vehicule.price_per_day %></h1></li>
+                          <li><%= link_to edit_vehicule_path(vehicule) , style: "text-decoration: none" do %>
+                            <i class="fas fa-pencil-alt" style="font-size: 18px; color: #fece2f; padding: 0px;"></i>
+                          <% end %></li>
+                          <li><%= link_to vehicule_path(vehicule) , method: :delete , data: { confirm: "are you sure" } do %>
+                            <i class="fas fa-trash-alt" style="font-size: 18px; color: #fece2f; padding: 0px;"></i>
+                          <% end %></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
 
       <div id="myrequests" class="tabcontent">
@@ -71,7 +103,10 @@
                   <% elsif booking.status == "accepted" %>
                   <p class="booking-status" style="background-color: #8BC34A; opacity: 0.7;"><%= booking.status.upcase %></p>
                   <% elsif booking.status == "denied" %>
-                  <p class="booking-status" style="background-color: #F44336; opacity: 0.7;"><%= booking.status.upcase %></p>
+                    <p class="booking-status" style="background-color: #F44336; opacity: 0.7;"><%= booking.status.upcase %></p>
+                    <%= link_to vehicule_booking_path(booking.vehicule, booking), method: :delete , data: { confirm: "are you sure" }, class: "booking-status-delete" do %>
+                      <i class="fas fa-trash-alt" style="font-size: 22px; color: #fece2f; padding: 0px;"></i>
+                    <% end %>
                   <% end %>
                   <!-- <a class="card-link-booking" href="#" ></a> -->
                 </div>
