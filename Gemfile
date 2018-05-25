@@ -25,6 +25,7 @@ gem 'jquery'
 gem 'rails-assets-jquery-nice-select', source: 'https://rails-assets.org'
 gem 'timeliness-i18n'
 gem "geocoder"
+gem 'will_paginate', '~> 3.1.1'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

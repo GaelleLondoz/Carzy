@@ -1,0 +1,25 @@
+function refreshForm(innerHTML) {
+  const newReviewForm = document.getElementById('new_review');
+  newReviewForm.innerHTML = innerHTML;
+}
+
+function refreshAvg(innerHTML) {
+  const newReviewForm = document.getElementById('review_average');
+  newReviewForm.innerHTML = innerHTML;
+}
+
+function addReview(reviewHTML) {
+  const reviews = document.getElementById('reviews-list');
+  reviews.insertAdjacentHTML('afterbegin', reviewHTML);
+  reviews.lastElementChild.remove();
+}
+
+<% if @review.errors.any? %>
+  refreshForm('<%= j render "reviews/form_review", vehicule: @vehicule, review: @review %>');
+<% else %>
+  $("#reviews").html("<%= escape_javascript(render("vehicules/reviews")) %>");
+  initializePagination();
+  // addReview('<%= j render "reviews/show", review: @review %>');
+  refreshForm('<%= j render "reviews/form_review", vehicule: @vehicule, review: Review.new %>');
+  refreshAvg('<%= j render "reviews/rating_average", vehicule: @vehicule %>')
+<% end %>
