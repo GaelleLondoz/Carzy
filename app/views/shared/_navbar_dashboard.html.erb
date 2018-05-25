@@ -24,20 +24,19 @@
         <div id="mytrips" class="tabcontent">
           <div class="container">
             <div class="row">
+              <%= current_user.email %>
               <% @bookings_i_made.each do |booking| %>
 
               <div class="col-xs-12 col-sm-4 col-md-3 card-booking">
                 <div class="booking-card-top">
-                  <%= cl_image_tag booking.vehicule.photo, class: "card-booking-photo", crop: :fill %>
-                  <img class="card-user-booking" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                  <%= cl_image_tag booking.vehicule.photo, class: "card-booking-photo", height: 200, width: 300, crop: :fill %>
                   <% if booking.status == "pending" %>
-                  <p class="booking-status" style="background-color: #FF9800;"><%= booking.status.upcase %></p>
+                  <p class="booking-status" style="color: #FF9800;"><%= booking.status.upcase %></p>
                   <% elsif booking.status == "accepted" %>
-                  <p class="booking-status" style="background-color: #8BC34A;"<%= booking.status.upcase %></p>
+                  <p class="booking-status" style="color: #8BC34A;"><%= booking.status.upcase %></p>
                   <% elsif booking.status == "denied" %>
-                  <p class="booking-status" style="background-color: #F44336;"><%= booking.status.upcase %></p>
+                  <p class="booking-status" style="color: #F44336;"><%= booking.status.upcase %></p>
                   <% end %>
-                  <a class="card-link-booking" href="#" ></a>
                 </div>
                 <div class="booking-description">
                   <ul class="booking">
@@ -45,8 +44,10 @@
                     <li class="model-car"><%= booking.vehicule.model %></li>
                   </ul>
                   <p class="info_dates"><span class="subtitle_booking">Check-in :</span> <%= booking.check_in %> <br><span class="subtitle_booking">Check-out :</span> <%= booking.check_out %></p>
+                  <% if booking.status == "pending" %>
+                    <%= link_to 'Cancel', vehicule_booking_path(booking.vehicule, booking), method: :delete, data: { confirm: "Are you sure?"}, class: "button-yellow" %>
+                  <% end %>
                 </div>
-                <button class="booking-button-yellow">Cancel</button>
               </div>
             <% end %>
           </div>
@@ -61,32 +62,39 @@
       <div id="myrequests" class="tabcontent">
         <div class="container">
             <div class="row">
-              <% @bookings_i_made.each do |booking| %>
+              <% @bookings_on_my_vehicule.each do |booking| %>
               <div class="col-xs-12 col-sm-4 col-md-3 card-booking">
                 <div class="booking-card-top">
-                  <%= cl_image_tag booking.vehicule.photo, class: "card-booking-photo", crop: :fill %>
-                  <img class="card-user-booking" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+                  <%= cl_image_tag booking.vehicule.photo, class: "card-booking-photo", height: 200, width: 300, crop: :fill %>
                   <% if booking.status == "pending" %>
-                  <p class="booking-status" style="background-color: #FF9800;"><%= booking.status.upcase %></p>
+                    <p class="booking-status" style="background-color: #FF9800;  opacity: 0.7;"><%= booking.status.upcase %></p>
                   <% elsif booking.status == "accepted" %>
-                  <p class="booking-status" style="background-color: #F44336;"><%= booking.status.upcase %></p>
+                  <p class="booking-status" style="background-color: #8BC34A; opacity: 0.7;"><%= booking.status.upcase %></p>
+                  <% elsif booking.status == "denied" %>
+                  <p class="booking-status" style="background-color: #F44336; opacity: 0.7;"><%= booking.status.upcase %></p>
                   <% end %>
-                  <a class="card-link-booking" href="#" ></a>
+                  <!-- <a class="card-link-booking" href="#" ></a> -->
                 </div>
                 <div class="booking-description">
                   <ul class="booking">
-                    <li class="title-car"><%= booking.vehicule.brand.capitalize %></li>
-                    <li class="model-car"><%= booking.vehicule.model %></li>
+                    <li class="title-car"><%= booking.vehicule.brand.upcase %></li>
+                    <li class="model-car"><%= booking.vehicule.model.capitalize %></li>
                   </ul>
-                  <p class="info_dates"><span class="subtitle_booking">Check-in :</span> <%= booking.check_in %> <br><span class="subtitle_booking">Check-out :</span> <%= booking.check_out %></p>
-                  <p><%= booking.user.first_name %></p>
+                  <p class="info_dates"><span class="subtitle_booking">Check-in :</span> <%= booking.check_in.to_s.gsub(/\-/, "/") %> <br><span class="subtitle_booking">Check-out :</span> <%= booking.check_out.to_s.gsub(/\-/, "/") %></p>
+                  <p><%= booking.user.first_name.capitalize %></p>
+                  <% if booking.status == "pending" %>
+                    <ul class="list-inline booking_myrequests">
+                      <li><%= simple_form_for [booking.vehicule, booking] do |f| %>
+                        <%= f.input :status, input_html: { value: 'accepted' }, as: :hidden %>
+                        <%= f.submit 'Accept', { class: 'button-yellow'} %>
+                      <% end %></li>
+                      <li><%= simple_form_for [booking.vehicule, booking] do |f| %>
+                        <%= f.input :status, input_html: { value: 'denied' }, as: :hidden %>
+                        <%= f.submit 'Reject', { class: 'button-yellow'} %>
+                      <% end %></li>
+                    </ul>
+                  <% end %>
                 </div>
-                <% if booking.status == "pending" %>
-                  <ul class="list-inline booking_myrequests">
-                    <li><button class="button-yellow">Accept</button></li>
-                    <li><button class="button-yellow">Reject</button></li>
-                  </ul>
-                <% end %>
               </div>
             <% end %>
           </div>
