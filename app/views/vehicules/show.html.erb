@@ -1,67 +1,63 @@
-<% if @vehicule.photo? %>
-<% photo_vehicule = cl_image_path @vehicule.photo, crop: :fill %>
-<% else %>
-<% photo_vehicule = image_path('not_available.png') %>
-<% end %>
-<div class="banner" style="background-image: url('<%= photo_vehicule %>'); "></div>
+  <% if @vehicule.photo? %>
+  <% photo_vehicule = cl_image_path @vehicule.photo, crop: :fill %>
+  <% else %>
+  <% photo_vehicule = image_path('not_available.png') %>
+  <% end %>
+  <div class="banner" style="background-image: url('<%= photo_vehicule %>'); "></div>
 
-<%= link_to "https://www.google.com/maps/search/?api=1&query=#{@vehicule.latitude},#{@vehicule.longitude}", target: "_blank" do %>
-<div
-id="map"
-data-markers="<%= @markers.to_json %>"
-></div>
-<% end %>
+  <%= link_to "https://www.google.com/maps/search/?api=1&query=#{@vehicule.latitude},#{@vehicule.longitude}", target: "_blank" do %>
+  <div
+  id="map"
+  data-markers="<%= @markers.to_json %>"
+  ></div>
+  <% end %>
+ <div class="show_container">
+    <div class="container_elements">
+      <h1 class="show_h1"><%= @vehicule.brand.upcase  %> <%= @vehicule.model.capitalize %> </h1>
+      <h2 class="show_h2"><%= @vehicule.year %></h2>
+      <div class="flex">
+        <ul class="show_ul">
+          <li class="show_li"><%= image_tag("mileage.svg", size: "37x37", alt: "Icon mileage")%> <%= @vehicule.mileage %> kms</li>
+          <li class="show_li"type=""><%= image_tag("transmission.svg", size: "37x37", alt: "Icon transmission")%> <%= @vehicule.transmission %> </li>
+          <li class="show_li"><%= image_tag("car.svg", size: "37x37", alt: "Icon car")%> <%= @vehicule.category %></li>
+          <li class="show_li"><%= image_tag("dollar.svg", size: "37x37", alt: "Icon dollar")%> <%= @vehicule.price_per_day %> /day</li>
+          <li class="show_li"><%= image_tag("seats.svg", size: "37x37", alt: "Icon seats")%> <%= @vehicule.number_of_seats %> seats
+          </li>
+          <li class="show_li"><%= image_tag("fuel_type.svg", size: "37x37", alt: "Icon fuel_type")%> <%= @vehicule.fuel_type %></li>
+        </ul>
+        <br>
+        <h3 class="show_h3">Description</h3>
+        <p class="description"><%= @vehicule.description  %> </p>
 
+        <h3 class="show_h3">Owner</h3>
+        <% if @vehicule.user.photo? %>
+        <% photo_user = cl_image_path @vehicule.user.photo, :transformation=>[
+          {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
+          {:width=>109, :crop=>"scale"}
+          ] %>
+          <% else %>
+          <% photo_user = image_path('user_avatar.png') %>
+          <% end %>
+          <div class="user_card">
+           <div class="avatar_user_random"></div>
 
-
-<div class="show_container">
-  <div class="container_elements">
-    <h1 class="show_h1"><%= @vehicule.brand.upcase  %> <%= @vehicule.model.capitalize %> </h1>
-    <h2 class="show_h2"><%= @vehicule.year %></h2>
-    <div class="flex">
-      <ul class="show_ul">
-        <li class="show_li"><%= image_tag("mileage.svg", size: "37x37", alt: "Icon mileage")%> <%= @vehicule.mileage %> kms</li>
-        <li class="show_li"type=""><%= image_tag("transmission.svg", size: "37x37", alt: "Icon transmission")%> <%= @vehicule.transmission %> </li>
-        <li class="show_li"><%= image_tag("car.svg", size: "37x37", alt: "Icon car")%> <%= @vehicule.category %></li>
-        <li class="show_li"><%= image_tag("dollar.svg", size: "37x37", alt: "Icon dollar")%> <%= @vehicule.price_per_day %> /day</li>
-        <li class="show_li"><%= image_tag("seats.svg", size: "37x37", alt: "Icon seats")%> <%= @vehicule.number_of_seats %> seats
-        </li>
-        <li class="show_li"><%= image_tag("fuel_type.svg", size: "37x37", alt: "Icon fuel_type")%> <%= @vehicule.fuel_type %></li>
-      </ul>
-      <br>
-      <h3 class="show_h3">Description</h3>
-      <p class="description"><%= @vehicule.description  %> </p>
-
-      <h3 class="show_h3">Owner</h3>
-      <% if @vehicule.user.photo? %>
-      <% photo_user = cl_image_path @vehicule.user.photo, :transformation=>[
-        {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
-        {:width=>109, :crop=>"scale"}
-        ] %>
-        <% else %>
-        <% photo_user = image_path('user_avatar.png') %>
-        <% end %>
-        <div class="user_card">
-         <div class="avatar_user_random"></div>
-
-         <div class="user_description">
-          <span><%= @vehicule.user.first_name %> <%= @vehicule.user.last_name %></span>
-          <p>Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
+           <div class="user_description">
+            <span><%= @vehicule.user.first_name %> <%= @vehicule.user.last_name %></span>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="center_button">
-      <% if @vehicule.user == current_user %>
-      <%= link_to "Edit", edit_vehicule_path(@vehicule) , class: "btn button-yellow" %>
+      <div class="center_button">
+        <% if @vehicule.user == current_user %>
+        <%= link_to "Edit", edit_vehicule_path(@vehicule) , class: "btn button-yellow" %>
 
-      <!--     new_vehicule_booking_path -->
-      <%= link_to "Delete", vehicule_path(@vehicule) , method: :delete , data: { confirm: "are you sure" }, class: "btn button-yellow" %>
-      <% else %>
-      <%= render 'bookings/form' %>
-      <% end %>
+        <!--     new_vehicule_booking_path -->
+        <%= link_to "Delete", vehicule_path(@vehicule) , method: :delete , data: { confirm: "are you sure" }, class: "btn button-yellow" %>
+        <% else %>
+        <%= render 'bookings/form' %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-
 
 

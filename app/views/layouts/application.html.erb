@@ -7,6 +7,7 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+
   </head>
   <body>
       <%= render 'shared/navbar' %>
@@ -20,11 +21,12 @@
 
 <!--     <script src="path/to/jquery.js"></script>
     <script src="path/to/jquery.nice-select.js"></script> -->
-
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_BROWSER_KEY']}" %>
      <%= javascript_pack_tag "map" %>
+
+
   </body>
 </html>
 
