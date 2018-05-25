@@ -1,16 +1,55 @@
       <div class="grey_background">
-        <% sum = 0 %>
-        <% @vehicules.each do |vehicule|%>
-        <% if vehicule.user == current_user  %>
-        <% sum +=1%>
-        <% end %>
-        <% end %>
-        <% if sum > 0  %>
-        <div class="tab">
-          <button class="tablinks" onclick="switchTab(event, 'mytrips')">My trips</button>
-          <button class="tablinks" onclick="switchTab(event, 'mycars')">My cars</button>
-          <button class="tablinks" onclick="switchTab(event, 'myrequests')"  id="defaultOpen">My requests</button>
-          <button class="tablinks" onclick="switchTab(event, 'mysettings')">My settings</button>
+      <% sum = 0 %>
+      <% @vehicules.each do |vehicule|%>
+      <% if vehicule.user == current_user  %>
+      <% sum +=1%>
+      <% end %>
+      <% end %>
+      <% if sum > 0  %>
+      <div class="tab">
+        <button class="tablinks" onclick="switchTab(event, 'mytrips')">My trips</button>
+        <button class="tablinks" onclick="switchTab(event, 'mycars')">My cars</button>
+        <button class="tablinks" onclick="switchTab(event, 'myrequests')"  id="defaultOpen">My requests</button>
+        <button class="tablinks" onclick="switchTab(event, 'mysettings')">My settings</button>
+      </div>
+      <% else %>
+      <div class="tab">
+        <button class="tablinks" onclick="switchTab(event, 'mytrips')"   id="defaultOpen" >My trips</button>
+        <button class="tablinks" onclick="switchTab(event, 'mysettings')">My settings</button>
+      </div>
+      <% end %>
+
+<div class="container">
+  <div class="wrapper_booking">
+    <div id="mytrips" class="tabcontent">
+      <div class="container">
+        <div class="row">
+          <% @bookings_i_made.each do |booking| %>
+            <div class="col-xs-12 col-sm-4 col-md-3 card-booking">
+              <div class="booking-card-top">
+                <%= cl_image_tag booking.vehicule.photo, class: "card-booking-photo", height: 200, width: 300, crop: :fill %>
+                <% if booking.status == "pending" %>
+                  <p class="booking-status" style="color: #FF9800;"><%= booking.status.upcase %></p>
+                <% elsif booking.status == "accepted" %>
+                  <p class="booking-status" style="background-color: #8BC34A;"><%= booking.status.capitalize %></p>
+                <% elsif booking.status == "denied" %>
+                  <p class="booking-status" style="background-color: #F44336;"><%= booking.status.capitalize %></p>
+                <% end %>
+              </div>
+              <div class="booking-description">
+                <ul class="booking">
+                  <li class="title-car"><%= booking.vehicule.brand.capitalize %></li>
+                  <li class="model-car"><%= booking.vehicule.model %></li>
+                </ul>
+                <p class="info_dates"><span class="subtitle_booking">Check-in :</span> <%= booking.check_in.to_s.gsub(/\-/, '/') %> <br><span class="subtitle_booking">Check-out :</span> <%= booking.check_out.to_s.gsub(/\-/, '/') %></p>
+                <% if booking.status == "pending" %>
+                  <%= link_to vehicule_booking_path(booking.vehicule, booking), method: :delete, data: { confirm: "Are you sure?"}, class: 'flex-accept-trip' do %>
+                  <i class="fas fa-times-circle" style="font-size: 30px; color: red;"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
         <% else %>
         <div class="tab">
@@ -47,8 +86,53 @@
                       <% end %>
                     </div>
                   </div>
-                  <% end %>
                 </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div id="myrequests" class="tabcontent">
+      <div class="container">
+          <div class="row">
+            <% @bookings_on_my_vehicule.each do |booking| %>
+            <div class="col-xs-12 col-sm-4 col-md-3 card-booking">
+              <div class="booking-card-top">
+                <%= cl_image_tag booking.vehicule.photo, class: "card-booking-photo", height: 200, width: 300, crop: :fill %>
+                <% if booking.status == "pending" %>
+                  <div class="flex-accept">
+                    <div>
+                    <%= simple_form_for [booking.vehicule, booking] do |f| %>
+                      <%= f.input :status, input_html: { value: 'denied' }, as: :hidden %>
+                      <button class="button-trans" style="background-color: transparent; border: none;"><i class="fas fa-times-circle" style="font-size: 30px; color: red;"></i></button>
+                    <% end %>
+                    </div>
+                    <div>
+                    <%= simple_form_for [booking.vehicule, booking] do |f| %>
+                      <%= f.input :status, input_html: { value: 'accepted' }, as: :hidden %>
+                      <button class="button-trans"><i class="far fa-check-circle" style="background-color: transparent; border: none; font-size: 30px; color: green;"></i></button>
+                    <% end %>
+                    </div>
+                  </div>
+                <% elsif booking.status == "accepted" %>
+                <p class="booking-status" style="background-color: #8BC34A;"><%= booking.status.capitalize %></p>
+                <% elsif booking.status == "denied" %>
+                  <p class="booking-status" style="background-color: #F44336;"><%= booking.status.capitalize %></p>
+                  <%= link_to vehicule_booking_path(booking.vehicule, booking), method: :delete , data: { confirm: "are you sure" }, class: "booking-status-delete" do %>
+                    <i class="fas fa-trash-alt" style="font-size: 22px; color: #fece2f; padding: 0px;"></i>
+                  <% end %>
+                <% end %>
+                <!-- <a class="card-link-booking" href="#" ></a> -->
+              </div>
+              <div class="booking-description">
+                <ul class="list-inline">
+                  <li class="title-car"><%= booking.vehicule.brand.upcase %></li>
+                  <li class="model-car"><%= booking.vehicule.model.capitalize %></li>
+                </ul>
+                <p class="info_dates"><span class="subtitle_booking">Check-in :</span> <%= booking.check_in.to_s.gsub(/\-/, "/") %> <br><span class="subtitle_booking">Check-out :</span> <%= booking.check_out.to_s.gsub(/\-/, "/") %></p>
+                <p><%= booking.user.first_name.capitalize %></p>
               </div>
             </div>
             <div id="mycars" class="tabcontent">
