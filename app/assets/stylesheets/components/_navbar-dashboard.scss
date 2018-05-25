@@ -10,6 +10,19 @@
   padding: 30px;
 }
 
+
+ .group-cards{
+    flex-grow: 1;
+    width: 973px !important;
+    margin: auto !important;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    /* padding: 50px 0; */
+}
+
 .tab {
   display: flex;
   justify-content: center;
