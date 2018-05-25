@@ -10,7 +10,6 @@ class VehiculesController < ApplicationController
       @vehicules = @vehicules.near(params[:location], 5)
     end
 
-
     @markers = @vehicules.map do |vehicule|
       {
         lat: vehicule.latitude,
